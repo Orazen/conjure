@@ -1,0 +1,18 @@
+{
+  "effect": "turn-to-stone",
+  "sample": "04-silver-hair.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 80,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. The person freezes mid-breath. Grey stone texture blooms from the chest outward, fine cracks racing across the skin and clothing as colour drains away. Hair stiffens into carved strands, a puff of stone dust drifts down, and the person settles into a still white marble statue. The camera slowly pushes in. Audio: Deep grinding stone, crackling fractures, and a low echoing rumble that settles into silence.",
+    "endFrame": "Convert the person into a classical carved white marble statue with grey veining: skin, hair and clothing become chiselled stone with fine cracks and a dusty matte surface, eyes blank and smooth. Keep the exact same pose, framing, camera angle, background and lighting; keep the person's face shape and proportions recognisable.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:22:43.039Z"
+}

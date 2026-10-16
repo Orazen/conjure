@@ -18,5 +18,8 @@
   "sound": "a sparkling swoosh and a short upbeat anime-style musical sting",
   "duration": 5,
   "author": "Conjure",
-  "version": 1
+  "version": 1,
+  "strength": {
+    "end": 1.0
+  }
 }

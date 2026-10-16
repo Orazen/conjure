@@ -336,7 +336,7 @@
     "class_type": "LTXVAddGuide",
     "inputs": {
       "frame_idx": -1,
-      "strength": 0.8,
+      "strength": 1,
       "positive": [
         "guide_start",
         0

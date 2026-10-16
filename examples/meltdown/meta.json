@@ -1,0 +1,17 @@
+{
+  "effect": "meltdown",
+  "sample": "06-vintage-car.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 44,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. The vintage car starts to soften like warm wax. Their features droop and slide, colours running in glossy rivulets as the whole body slowly melts downward into a shiny swirling puddle on the ground. Surreal, smooth, satisfying motion. Static camera. Audio: Slow gooey dripping, warm bubbling, and a satisfying final splat.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:20:54.102Z"
+}

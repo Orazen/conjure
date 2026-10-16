@@ -1,0 +1,18 @@
+{
+  "effect": "deep-freeze",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 59,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. Cold mist rolls in around the person. Feathery frost crystals creep from the feet upward, the skin and clothing turning glassy and translucent, frost blooming across the hair, until the person is a sparkling ice sculpture catching the light. Snowflakes drift through the frame. Slow push-in. Audio: Crackling ice, a whistling cold wind, and delicate tinkling crystals.",
+    "endFrame": "Convert the person into a translucent carved ice sculpture: clear blue-white ice with trapped air bubbles, frosted edges, and light refracting through the body; thin frost covers the ground nearby. Keep the exact same pose, framing, camera angle, background and lighting; keep the person's face shape and proportions recognisable.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:41:52.665Z"
+}

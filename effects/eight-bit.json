@@ -18,5 +18,8 @@
   "sound": "retro chiptune bleeps, a glitchy digital crunch, and an 8-bit power-up jingle",
   "duration": 5,
   "author": "Conjure",
-  "version": 1
+  "version": 1,
+  "strength": {
+    "end": 1.0
+  }
 }

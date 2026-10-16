@@ -22,7 +22,7 @@ export type Quality = (typeof QUALITIES)[number];
 /** Output sizes. Every side is a multiple of 64 so the half-res stage-1 latent stays a multiple of 32. */
 export const SIZES: Record<Quality, Record<Aspect, [number, number]>> = {
   standard: { "9:16": [704, 1280], "4:5": [832, 1024], "1:1": [960, 960], "16:9": [1280, 704] },
-  draft: { "9:16": [512, 896], "4:5": [576, 704], "1:1": [704, 704], "16:9": [896, 512] },
+  draft: { "9:16": [576, 1024], "4:5": [640, 768], "1:1": [768, 768], "16:9": [1024, 576] },
 };
 
 export const FPS = 24;

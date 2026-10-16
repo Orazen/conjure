@@ -1,0 +1,18 @@
+{
+  "effect": "eight-bit",
+  "sample": "06-vintage-car.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 40,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. Digital glitches flicker across the vintage car: scanlines roll, colours band, and the image breaks into chunky square pixels that ripple from the edges inward until the whole frame is retro pixel art. The vintage car does a small sprite-style idle bounce. Audio: Retro chiptune bleeps, a glitchy digital crunch, and an 8-bit power-up jingle.",
+    "endFrame": "Restyle the entire image as retro 16-bit pixel art: chunky visible pixels, limited colour palette, the vintage car rendered as a game sprite with crisp pixel edges, background as a pixel-art scene. Same composition.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:23:57.859Z"
+}

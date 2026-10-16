@@ -1,0 +1,17 @@
+{
+  "effect": "dust-to-dust",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 28,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. The person looks down at their hand as it begins to crumble into fine grey ash at the edges. The disintegration spreads up the arm and across the body, flakes and particles peeling away and swirling off to the side on a gentle wind until only drifting dust remains against the background. Slow, dramatic, shallow depth of field. Audio: A soft crumbling hiss, wind gusting, and a fading low cinematic drone.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:35:59.713Z"
+}

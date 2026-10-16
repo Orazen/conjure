@@ -71,8 +71,8 @@ describe("workflow builder", () => {
   it("builds a motion workflow at half resolution for stage 1", async () => {
     const e = (await lib.get("dust-to-dust"))!;
     const b = buildWorkflow(config.workflowsDir, e, { aspect: "16:9", quality: "draft", seed: 1 });
-    expect(b.graph.empty_video.inputs).toMatchObject({ width: 448, height: 256 });
-    expect(b.graph["resize_image"].inputs["resize_type.width"]).toBe(896);
+    expect(b.graph.empty_video.inputs).toMatchObject({ width: 512, height: 288 });
+    expect(b.graph["resize_image"].inputs["resize_type.width"]).toBe(1024);
     expect(b.graph.edit_prompt).toBeUndefined();
   });
 

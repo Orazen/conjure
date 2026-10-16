@@ -1,0 +1,18 @@
+{
+  "effect": "chrome-reveal",
+  "sample": "02-denim.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 43,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. A thin glowing seam appears on the person's cheek. Panels of skin slide and fold back with precise mechanical motion, revealing gleaming chrome and white ceramic plates underneath, blue light lines flickering on across the neck. The eyes power up with a soft cyan glow as the person turns slightly toward the camera. Cinematic slow push-in. Audio: Servo whirs, metallic clicks, and a rising electronic power-up tone.",
+    "endFrame": "Turn the person into a sleek humanoid android: polished chrome and white ceramic panels with fine seams, glowing blue light lines along the neck and cheeks, mechanical joints visible at the jaw and shoulders, eyes glowing softly cyan. Keep the outfit, pose and background unchanged.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:39:44.282Z"
+}

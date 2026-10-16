@@ -1,0 +1,18 @@
+{
+  "effect": "inflate",
+  "sample": "03-golden-retriever.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 44,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. The golden retriever's cheeks puff out, then their whole body swells up like a balloon being blown up, clothing stretching smooth and glossy, arms and legs ballooning out. They lift gently off the ground and bob in the air, slowly rotating. Comedic timing, steady camera. Audio: A long squeaky rubber inflation stretch, a comic boing, and a gentle floating whistle.",
+    "endFrame": "Turn the golden retriever into an inflated shiny latex balloon version of themselves: round puffy body, smooth glossy balloon texture with a bright highlight, puffed cheeks and rounded limbs, one seamless balloon surface, floating slightly above the ground. Same colours of clothing and hair, same background. Comedic.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:35:32.150Z"
+}

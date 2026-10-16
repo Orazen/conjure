@@ -1,0 +1,17 @@
+{
+  "effect": "earth-zoom-out",
+  "sample": "05-rooftop.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 145,
+  "renderSeconds": 42,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. The camera starts close on the person, then rockets straight up and backward in one continuous move: the surroundings shrink, the neighbourhood and city appear, clouds rush past, and the view pulls out to the curve of planet Earth glowing blue against black space. Smooth accelerating aerial pull-back. Audio: A building whoosh, rushing wind through clouds, then a deep silent space ambience.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:39:01.564Z"
+}

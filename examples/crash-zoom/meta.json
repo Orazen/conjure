@@ -1,0 +1,17 @@
+{
+  "effect": "crash-zoom",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 97,
+  "renderSeconds": 25,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. The person slowly turns to look straight into the lens. The camera suddenly crash-zooms in at high speed toward their eyes, motion blur streaking the edges, stopping hard on an extreme close-up of one eye as the iris catches a glint of light. Dramatic film lighting. Audio: A sharp rising whoosh and a heavy cinematic impact boom.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:19:44.422Z"
+}

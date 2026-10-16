@@ -1,0 +1,17 @@
+{
+  "effect": "thunder-call",
+  "sample": "05-rooftop.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 29,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. The sky darkens and wind picks up around the person. They look up as crackling blue-white electricity arcs between their fingers, then a bolt of lightning strikes behind them, flooding the scene with light as sparks dance across their shoulders and hair lifts with static. Low-angle camera. Audio: Crackling electricity, a huge rolling thunderclap, and gusting storm wind.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:47:23.784Z"
+}

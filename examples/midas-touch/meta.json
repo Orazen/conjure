@@ -1,0 +1,18 @@
+{
+  "effect": "midas-touch",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 59,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. The person stands still as a bead of molten gold appears at their fingertips. Liquid gold spreads up the arms and across the clothing in glossy rippling waves, hardening as it goes, climbing the neck and washing over the face and hair until the person is a gleaming motionless gold statue. Warm light glints across the new metal surface. The camera holds steady with a very slow push-in. Audio: A rising shimmering metallic hum, soft liquid pouring, and a final bright resonant chime.",
+    "endFrame": "Convert the person into a solid statue cast in polished 24-karat gold: skin, hair and clothing all become mirror-smooth reflective gold metal with warm specular highlights and subtle hammered texture. Keep the exact same pose, framing, camera angle, background and lighting; keep the person's face shape and proportions recognisable.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:34:47.916Z"
+}

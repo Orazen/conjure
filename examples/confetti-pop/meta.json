@@ -1,0 +1,17 @@
+{
+  "effect": "confetti-pop",
+  "sample": "03-golden-retriever.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 97,
+  "renderSeconds": 26,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. The golden retriever grins, then bursts in a playful pop into thousands of colourful confetti pieces and streamers that explode outward and flutter down through the frame, sparkling in the light, revealing the empty background behind. Joyful, bright, steady camera. Audio: A cartoon pop, a party horn, cheering, and rustling falling confetti.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:20:10.220Z"
+}

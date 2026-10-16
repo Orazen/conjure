@@ -1,0 +1,17 @@
+{
+  "effect": "portal-out",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 47,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. A swirling ring of violet light tears open in the air beside the person, crackling with energy and casting purple light across the scene. The person glances at the camera, then steps into the portal and vanishes as it snaps shut with a flash, leaving drifting sparks. Steady camera. Audio: A humming energy vortex, electric crackles, and a sharp collapsing whoomp.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:46:11.100Z"
+}

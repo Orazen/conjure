@@ -71,7 +71,7 @@ describe("api (mock backend)", () => {
     expect(job.error).toBeUndefined();
     expect(job.status).toBe("succeeded");
     expect(job.aspect).toBe("9:16");
-    expect([job.width, job.height]).toEqual([512, 896]);
+    expect([job.width, job.height]).toEqual([576, 1024]);
     expect(job.outputs.endFrame).toMatch(/end_frame\.png$/);
     expect(job.outputs.video).toBeTruthy();
     const file = await app.request(job.outputs.video);

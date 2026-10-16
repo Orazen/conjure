@@ -6,7 +6,7 @@
 import { Comfy } from "@comfyorg/sdk";
 import sharp from "sharp";
 import { mkdir } from "node:fs/promises";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 import { config } from "../server/config.ts";
 import { friendlyError } from "../server/jobs.ts";
 
@@ -32,7 +32,7 @@ try {
   if (!out) throw new Error("job succeeded but returned no image");
   const dir = join(config.dataDir, "doctor");
   await mkdir(dir, { recursive: true });
-  const path = await out.toFile(join(dir, out.name));
+  const path = await out.toFile(join(dir, basename(out.name)));
   console.log(`✔ Upload, run and download all work (${((Date.now() - t0) / 1000).toFixed(1)}s). Output: ${path}`);
   console.log("  Next: npm run dev, open the app, and conjure your first effect.");
 } catch (err) {

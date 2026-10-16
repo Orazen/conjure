@@ -1,0 +1,17 @@
+{
+  "effect": "zero-gravity",
+  "sample": "03-golden-retriever.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 21,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. Gravity switches off. The golden retriever's hair lifts and fans out, loose objects and dust rise slowly into the air around them, and the golden retriever drifts gently up off the ground, turning slowly with arms floating outward, a look of calm wonder on their face. The camera tilts up to follow. Dreamy soft light. Audio: An airy ambient swell, soft whooshes, and a gentle floating chime.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:18:07.557Z"
+}

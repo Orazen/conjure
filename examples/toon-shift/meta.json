@@ -1,0 +1,18 @@
+{
+  "effect": "toon-shift",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 35,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. A shimmering wipe sweeps across the frame from left to right. Everything it passes is redrawn as a hand-drawn anime frame with ink outlines and cel shading, the background turning painterly. The person blinks and smiles as their hair catches a breeze with stylised anime motion. Audio: A sparkling swoosh and a short upbeat anime-style musical sting.",
+    "endFrame": "Restyle the entire image as a hand-drawn cel-shaded anime frame: clean ink outlines, flat vibrant colours with soft gradient shading, painterly background, expressive large eyes for the person. Same composition, pose and colour palette.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T21:23:17.972Z"
+}

@@ -1,0 +1,18 @@
+{
+  "effect": "origami",
+  "sample": "04-silver-hair.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 43,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. Sharp crease lines appear across the person like a folding pattern. Their body folds along the lines in quick precise paper folds, flattening into crisp faceted planes until the person is a delicate origami sculpture that settles with a tiny bounce. Steady camera, soft daylight. Audio: Rapid paper folding, crisp crinkles, and a soft paper flutter.",
+    "endFrame": "Turn the person into an intricate origami paper sculpture: crisp folded paper facets in the colours of their clothing and hair, sharp creases, visible paper texture, soft studio shadows. Same pose and background.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:48:06.559Z"
+}

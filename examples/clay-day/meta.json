@@ -1,0 +1,18 @@
+{
+  "effect": "clay-day",
+  "sample": "01-raincoat.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 77,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. The scene softens as if being sculpted: the person's skin and clothes take on a soft plasticine texture with visible fingerprints, edges rounding into handmade clay shapes while the background turns into a miniature clay set. The person gives a small stop-motion style wave at the end, slightly jerky like animation at twelve frames per second. Audio: Squishy clay sounds and a cheerful plucked-string jingle.",
+    "endFrame": "Restyle the entire image as a handmade stop-motion claymation scene: the person becomes a plasticine clay figure with visible fingerprints, soft rounded shapes and slightly lumpy textures; the background becomes a miniature handcrafted clay set. Same composition and colours.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:45:23.666Z"
+}

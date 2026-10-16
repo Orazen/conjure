@@ -1,0 +1,17 @@
+{
+  "effect": "bullet-time",
+  "sample": "02-denim.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 46,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. Time freezes: the person hangs motionless mid-moment, strands of hair and floating dust suspended in the air. The camera glides in a smooth half-orbit around the person, revealing them from the side while everything stays perfectly still. Cinematic lighting with crisp detail. Audio: Time slowing down into a deep stretched whoosh, a heartbeat, and a low suspended drone.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:42:38.245Z"
+}

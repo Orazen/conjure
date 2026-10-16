@@ -18,5 +18,8 @@
   "sound": "deep grinding stone, crackling fractures, and a low echoing rumble that settles into silence",
   "duration": 5,
   "author": "Conjure",
-  "version": 1
+  "version": 1,
+  "strength": {
+    "end": 1.0
+  }
 }

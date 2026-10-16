@@ -1,0 +1,17 @@
+{
+  "effect": "angel-wings",
+  "sample": "04-silver-hair.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 47,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame. Soft light glows behind the person. Enormous white feathered wings unfurl from their back, spreading wide on both sides of the frame, feathers ruffling, then give one slow powerful flap that sends loose feathers drifting through golden light. Gentle upward camera tilt. Audio: A heavy rustle of feathers, one powerful wing beat, and an ethereal choir swell.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:44:06.954Z"
+}

@@ -1,0 +1,18 @@
+{
+  "effect": "full-moon",
+  "sample": "02-denim.png",
+  "quality": "standard",
+  "seed": 42,
+  "size": [
+    704,
+    1280
+  ],
+  "frames": 121,
+  "renderSeconds": 42,
+  "prompts": {
+    "motion": "Use the provided start image as the first frame and the provided end image as the final frame anchor. Moonlight washes over the person. Their eyes flash amber, fur ripples across the skin, the face stretches into a wolf snout and pointed ears rise through the hair as the shoulders broaden and clothes tear at the seams. The finished werewolf throws its head back and howls. Handheld camera with a subtle shake. Audio: Cracking and stretching, a deep growl, then a long haunting wolf howl under night wind.",
+    "endFrame": "Turn the person into a werewolf: thick grey-brown fur over the face and body, a wolf snout with bared teeth, pointed ears, amber glowing eyes, clawed hands; clothing slightly torn. Moonlit blue lighting. Same pose, framing and background. Cinematic, not gory.",
+    "negative": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion"
+  },
+  "renderedAt": "2026-10-16T15:43:20.058Z"
+}
