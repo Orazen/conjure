@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { api, isVideo, type Job } from "../api.ts";
 import { JobView } from "./JobView.tsx";
+import { useApp } from "../state.tsx";
 
 export function GalleryPage() {
   const [jobs, setJobs] = useState<Job[]>();
   const [open, setOpen] = useState<Job>();
+  const { status } = useApp();
+  const showcase = status?.backend === "showcase";
 
   useEffect(() => {
     api.jobs().then(setJobs).catch(() => setJobs([]));
@@ -14,10 +17,12 @@ export function GalleryPage() {
   return (
     <>
       <div className="toolbar">
-        <h2>My renders</h2>
+        <h2>{showcase ? "Example renders" : "My renders"}</h2>
         <span className="tag">{jobs.length}</span>
         <div className="spacer" />
-        <span style={{ color: "var(--faint)", fontSize: 13 }}>Saved in your data/outputs folder.</span>
+        <span style={{ color: "var(--faint)", fontSize: 13 }}>
+          {showcase ? "Rendered with Conjure: FLUX 3 + LTX-2.5, open weights." : "Saved in your data/outputs folder."}
+        </span>
       </div>
       {open && (
         <div style={{ marginBottom: 20 }}>

@@ -3,6 +3,7 @@ import { api, decodeRecipe, encodeRecipe, type Effect } from "../api.ts";
 import { useApp, go } from "../state.tsx";
 import { EffectCard } from "./EffectCard.tsx";
 import { RenderPanel } from "./RenderPanel.tsx";
+import { ImagineBar } from "./ImagineBar.tsx";
 
 type Draft = Omit<Effect, "source" | "example">;
 
@@ -50,7 +51,7 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
       const loaded = decodeRecipe(r) as Draft;
       setDraft({ ...BLANK_TRANSFORM, ...loaded, sound: loaded.sound ?? "" });
       setIdTouched(true);
-      toast(`Loaded "${loaded.name}"`);
+      toast(params.get("wizard") ? `Gemma 4 drafted "${loaded.name}". Tweak it or hit Test.` : `Loaded "${loaded.name}"`);
     } catch {
       toast("That effect link is broken");
     }
@@ -111,7 +112,12 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
       <div className="builder">
         <div style={{ display: "grid", gap: 16 }}>
           <div className="section">
-            <h4>Start from</h4>
+            <h4>Describe it</h4>
+            <ImagineBar compact />
+          </div>
+
+          <div className="section">
+            <h4>Or start from</h4>
             <div className="row">
               <div className="field">
                 <select
@@ -237,7 +243,7 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
           {idClash && <div className="note">"{recipe.id}" is already a built-in effect. Change the ID before you save.</div>}
           <div className="actions">
             <button className="btn primary" disabled={!!error} onClick={() => setTesting(true)}>Test on my photo</button>
-            <button className="btn" disabled={!!error || idClash} onClick={save}>Save to My effects</button>
+            <button className="btn" disabled={!!error || idClash || status?.backend === "showcase"} onClick={save}>Save to My effects</button>
           </div>
           <div className="section">
             <h4>Share</h4>

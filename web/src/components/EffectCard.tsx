@@ -6,7 +6,7 @@ export function EffectArt({ effect, playing }: { effect: Effect; playing?: boole
   if (effect.example?.video) {
     return (
       <video
-        src={effect.example.video}
+        src={effect.example.preview ?? effect.example.video}
         poster={effect.example.input}
         muted
         loop

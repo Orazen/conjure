@@ -80,3 +80,8 @@ export async function makeReel(opts: { photo: string; video: string; out: string
     ]);
   }
 }
+
+/** Small silent loop for gallery cards (~400 px wide). */
+export async function makePreview(video: string, out: string) {
+  await run(["-i", video, "-vf", "scale=400:-2,fps=24", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "30", "-movflags", "+faststart", out]);
+}

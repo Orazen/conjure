@@ -15,6 +15,7 @@
     "mock": "concurrently -k -n server,web -c magenta,cyan \"npm:dev:server:mock\" \"npm:dev:web\"",
     "dev:server:mock": "tsx watch --env-file-if-exists=.env server/main.ts --mock",
     "build": "vite build",
+    "build:showcase": "tsx scripts/build-showcase.ts",
     "start": "tsx --env-file-if-exists=.env server/main.ts",
     "doctor": "tsx --env-file-if-exists=.env scripts/doctor.ts",
     "samples": "tsx --env-file-if-exists=.env scripts/make-samples.ts",

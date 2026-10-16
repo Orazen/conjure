@@ -12,7 +12,7 @@ Categories this entry is built for:
 | **Open Weights Only** (RTX 5090) | FLUX 3 Image Klein + LTX-2.5 only. No partner nodes, no closed APIs |
 | **LTX VFX bonus** ($2k) | LTX-2.5 is the core video model in every effect (video + generated audio) |
 | **FLUX bonus** | FLUX 3 Image Klein is the core image model in every transform effect |
-| Most Innovative (RTX 5090) | Recipes-as-data compiled to Comfy graphs, a two-model single job, and a custom node pack. The demo video must say *why* this is novel (see DEMO_SCRIPT.md) |
+| Most Innovative (RTX 5090) | A one-line idea becomes a working effect: Gemma 4 *inside ComfyUI* writes the recipe, which compiles into a validated two-model graph (FLUX 3 → LTX-2.5). Plus a custom node pack. The demo video must say *why* this is novel (see DEMO_SCRIPT.md) |
 
 ---
 
@@ -59,6 +59,7 @@ git push -u origin main
 3. Add `CONJURE_GITHUB_REPO=<your-username>/conjure` to `.env` (this enables the "Submit to community" button).
 4. Replace `<you>` in README's clone URL and `YOUR_GITHUB` in `comfy-nodes/ComfyUI-Conjure/pyproject.toml`.
 5. Swap `docs/screenshots/home.png` for a real screenshot or GIF that shows rendered previews.
+6. **Turn on the live link:** repo **Settings → Pages → Source: GitHub Actions**. The next push publishes the showcase at `https://<your-username>.github.io/conjure/`. That's your "live link" for the form.
 
 ## 5. Record the demo (≤ 2 min)
 
@@ -75,8 +76,8 @@ https://form.typeform.com/to/V1dSQrkS. Have these ready:
 - GitHub repo URL
 - Demo video URL (≤ 2 min)
 - Social post URL
-- Live link (optional; skip it, or record a public Comfy deployment link if you make one)
-- Short description: *"Conjure is an open-source rebuild of one-tap viral video effects. FLUX 3 Image Klein paints where the shot ends up and LTX-2.5 animates the move with sound, all open weights, all through the Comfy SDK. Effects are tiny JSON recipes anyone can remix in the built-in Effect Builder, share as a link, or contribute by PR. A ComfyUI node pack brings them into any graph."*
+- Live link: `https://<your-username>.github.io/conjure/` (the GitHub Pages showcase)
+- Short description: *"Conjure is an open-source rebuild of one-tap viral video effects. FLUX 3 Image Klein paints where the shot ends up and LTX-2.5 animates the move with sound, all open weights, all through the Comfy SDK. Type any idea ('turn me into a chocolate statue') and Gemma 4, running inside ComfyUI, writes a new effect for you. Effects are tiny JSON recipes anyone can remix, share as a link, or contribute by PR, and a ComfyUI node pack brings them into any graph."*
 - Tools used besides Comfy (they must also be stated in the video): ffmpeg (share reel), React/Vite + Hono (app), Claude as an AI coding assistant.
 
 ## Rules to keep in mind

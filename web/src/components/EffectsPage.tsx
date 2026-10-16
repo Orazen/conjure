@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 import { useApp, go } from "../state.tsx";
 import { PhotoDock } from "./PhotoDock.tsx";
 import { EffectCard } from "./EffectCard.tsx";
+import { ImagineBar } from "./ImagineBar.tsx";
+import { HeroReel } from "./Showcase.tsx";
 
 const FILTERS = [
   { id: "all", label: "All" },
@@ -45,6 +47,12 @@ export function EffectsPage() {
             <span className="tag">video + generated audio</span>
             <span className="tag">remix + share recipes</span>
           </div>
+          {status?.backend === "showcase" && (
+            <p className="note" style={{ marginTop: 16 }}>
+              Live showcase: every clip here was rendered by Conjure. Open any effect to scrub the before/after, remix it in the
+              builder, or share it. Run it locally to use your own photos.
+            </p>
+          )}
           {status?.backend === "mock" && (
             <p className="note" style={{ marginTop: 16 }}>
               Mock mode: renders are simulated with ffmpeg so you can explore the app. Add <code>COMFY_API_KEY</code>{" "}
@@ -52,8 +60,10 @@ export function EffectsPage() {
             </p>
           )}
         </div>
-        <PhotoDock />
+        {status?.backend === "showcase" ? <HeroReel /> : <PhotoDock />}
       </section>
+
+      <ImagineBar />
 
       <div className="toolbar">
         <h2>Effects</h2>

@@ -4,6 +4,7 @@ import { useApp } from "../state.tsx";
 import { PhotoDock } from "./PhotoDock.tsx";
 import { JobView } from "./JobView.tsx";
 import { pipelineLabel } from "./EffectCard.tsx";
+import { ExampleResult, RunYourself } from "./Showcase.tsx";
 
 const ASPECTS = [
   { id: "auto", label: "Auto" },
@@ -23,6 +24,19 @@ export function RenderPanel({ effect, unsaved }: { effect: Effect; unsaved?: boo
   const [seed, setSeed] = useState("");
   const [busy, setBusy] = useState(false);
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [detecting, setDetecting] = useState(false);
+
+  const detect = async () => {
+    if (!photo) return toast("Add a photo first");
+    setDetecting(true);
+    try {
+      setSubject((await api.wizardSubject(photo.blob)).subject);
+    } catch (err) {
+      toast((err as Error).message);
+    } finally {
+      setDetecting(false);
+    }
+  };
 
   const conjure = async (overrides: { seed?: number } = {}) => {
     if (!photo) return toast("Add a photo first");
@@ -46,6 +60,14 @@ export function RenderPanel({ effect, unsaved }: { effect: Effect; unsaved?: boo
     }
   };
 
+  if (status?.backend === "showcase")
+    return (
+      <>
+        {!unsaved && <ExampleResult effect={effect} />}
+        <RunYourself />
+      </>
+    );
+
   return (
     <>
       {!photo && <PhotoDock />}
@@ -66,7 +88,12 @@ export function RenderPanel({ effect, unsaved }: { effect: Effect; unsaved?: boo
         <div className="row">
           <div className="field" style={{ flex: "2 1 260px" }}>
             <label htmlFor="subject">Who or what is in the photo?</label>
-            <input id="subject" placeholder={effect.subject} value={subject} onChange={(e) => setSubject(e.target.value)} maxLength={60} />
+            <div style={{ display: "flex", gap: 8 }}>
+              <input id="subject" placeholder={effect.subject} value={subject} onChange={(e) => setSubject(e.target.value)} maxLength={60} />
+              <button className="btn small" type="button" disabled={detecting || !photo} onClick={detect} title="Gemma 4 looks at your photo and names the subject">
+                {detecting ? "Looking…" : "✦ Detect"}
+              </button>
+            </div>
             <span className="hint">Optional. For example "my dog", "the woman in the red coat" or "the vintage car".</span>
           </div>
         </div>

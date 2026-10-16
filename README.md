@@ -19,7 +19,9 @@ Every effect is a small JSON recipe that anyone can remix, share as a link, or c
 
 - **Two-model "transform" pipeline in one Comfy job.** For effects that end somewhere new (gold statue, ice, werewolf…), **FLUX 3 Image Klein** first *paints the final frame* from your photo, then **LTX-2.5** generates the move from *your photo → that frame* (first/last-frame video) **with a matching soundtrack**. Motion effects (disintegrate, crash zoom, bullet time…) go straight to LTX-2.5 image-to-video with a two-stage upscale.
 - **Effects are data, not graphs.** A recipe holds the end state, the motion, the camera, and the sound. It never names a node or a model file. The server compiles it into a ComfyUI API graph, so one workflow upgrade improves every effect at once.
-- **Anyone can make an effect.** The built-in **Effect Builder** lets you write a recipe, test it on your own photo, then share it as a **link** (the recipe travels inside the URL) or open a **GitHub pull request** that adds it to `effects/` for everyone.
+- **Describe any effect in one line.** Type *"turn me into a chocolate statue"* and the **Effect Wizard** has **Gemma 4** (an open-weights LLM running *inside ComfyUI*, through the same SDK) write the full recipe. It can also look at your photo to name the subject ("the woman in the yellow raincoat"), which sharpens every prompt.
+- **Anyone can make an effect.** The built-in **Effect Builder** lets you write or tweak a recipe, test it on your own photo, then share it as a **link** (the recipe travels inside the URL) or open a **GitHub pull request** that adds it to `effects/` for everyone.
+- **Live showcase.** Every push publishes a static version of the app to GitHub Pages. It has every effect with its example render, the before/after slider and the Effect Builder, so anyone can try it without installing anything.
 - **Use the effects in plain ComfyUI too.** You get 22 ready-to-run workflows, plus a small custom node pack (**ComfyUI-Conjure**) that turns any recipe into prompts and frame counts inside your own graphs.
 - **Open weights only.** No partner nodes or closed APIs. The same code runs on Comfy Cloud, a Comfy API deployment, or a self-hosted ComfyUI through `comfy-api-proxy`.
 - **Made to be shared.** Before/after drag slider, one-click vertical **before→after reel**, ready-made caption, 9:16 by default.
@@ -100,8 +102,9 @@ pip install comfy-api-proxy && comfy-api-proxy run     # serves the Comfy API v2
 | [`flux3_image_klein_sd_int8_convrot`](https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy) | `diffusion_models` | FLUX 3 Image Klein (end frame) |
 | [`qwen3vl_4b_int8_convrot`](https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy) | `text_encoders` | FLUX 3 text encoder |
 | [`flux2-vae`](https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy) | `vae` | FLUX VAE |
+| [`gemma4_e4b_it_fp8_scaled`](https://huggingface.co/Comfy-Org/gemma-4) | `text_encoders` | Gemma 4 E4B, the Effect Wizard (optional) |
 
-Exact download URLs are in [`workflows/models.json`](workflows/models.json). The `workflows/ui/*.json` files carry them too, so ComfyUI's "missing models" dialog can fetch them. Both Hugging Face repos are gated, so accept the terms there first. Licenses: LTX-2.x Community License (Lightricks) and the FLUX 3 Image Klein license (Black Forest Labs).
+Exact download URLs are in [`workflows/models.json`](workflows/models.json). The `workflows/ui/*.json` files carry them too, so ComfyUI's "missing models" dialog can fetch them. Both Hugging Face repos are gated, so accept the terms there first. Licenses: LTX-2.x Community License (Lightricks), the FLUX 3 Image Klein license (Black Forest Labs) and the Gemma license (Google).
 
 ## The effects
 
@@ -131,7 +134,7 @@ Exact download URLs are in [`workflows/models.json`](workflows/models.json). The
 | 🫠 **Meltdown** | Melt into a glossy puddle like wax in the sun. | LTX-2.5 | `meltdown` |
 ## Make your own effect
 
-Open **Effect Builder** in the app, or write a file in `effects/`:
+The fastest way is to type the idea into **"Imagine any effect…"**. Gemma 4 drafts the recipe and opens it in the builder for you. Or open **Effect Builder** and write it yourself, or write a file in `effects/`:
 
 ```json
 {
@@ -177,6 +180,7 @@ The full schema with validation lives in [`server/effects.ts`](server/effects.ts
 |---|---|
 | `npm run dev` / `npm run mock` | UI on :5173 + API on :8787 (live reload) / same, with simulated renders |
 | `npm run build && npm start` | Production: one server on :8787 |
+| `npm run build:showcase` | Static live showcase for GitHub Pages (`.github/workflows/pages.yml` deploys it on every push) |
 | `npm run doctor` | Checks your Comfy backend with a tiny 3-node job |
 | `npm run samples` | Generates synthetic sample photos with FLUX 3 (no real people's likeness) |
 | `npm run examples` | Renders every effect into `examples/<id>/` for the gallery previews (`--only=…`, `--quality=draft`, `--force`) |
@@ -188,8 +192,9 @@ The full schema with validation lives in [`server/effects.ts`](server/effects.ts
 
 ```
 effects/            22 recipes (+ _order.json for gallery order)
+shared/             the recipe schema (used by server and browser)
 workflows/          base API graphs, node-schemas.json snapshot, models.json, effects/, ui/
-server/             Hono API: recipe schema, workflow builder, Comfy SDK runner, mock runner, ffmpeg reel
+server/             Hono API: workflow builder, Comfy SDK runner, Effect Wizard (Gemma 4), mock runner, ffmpeg reel
 web/                React UI: gallery, effect sheet, before/after compare, Effect Builder, renders
 comfy-nodes/        ComfyUI-Conjure custom node pack
 scripts/            doctor, samples, examples, validate, export
@@ -202,6 +207,7 @@ docs/               how it works, demo script, submission checklist
 - All 176 workflow builds (22 effects × 4 aspects × 2 qualities, plus a LoRA-spliced variant) were submitted to a real, current ComfyUI (`/prompt` validation), and all passed. CI-friendly offline checks run against `workflows/node-schemas.json`.
 - The SDK path (upload → submit → events → outputs → download) was exercised end to end against ComfyUI through `comfy-api-proxy`.
 - The ComfyUI-Conjure node was loaded and executed in ComfyUI. Its prompts match the app's for every effect.
+- The Effect Wizard graph (Gemma 4 → `SaveText`) passes ComfyUI validation, and text outputs come back through the SDK. Messy LLM replies are repaired into valid recipes (tested).
 
 ## Credits
 

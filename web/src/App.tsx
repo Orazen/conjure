@@ -37,7 +37,7 @@ function TopBar({ path }: { path: string }) {
       <nav className="nav">
         {link("/", "Effects", "Effects", (p) => p === "/" || p.startsWith("/effect/"))}
         {link("/builder", "Effect Builder", "Builder", (p) => p.startsWith("/builder"))}
-        {link("/gallery", "My renders", "Renders", (p) => p.startsWith("/gallery"))}
+        {link("/gallery", status?.backend === "showcase" ? "Examples" : "My renders", status?.backend === "showcase" ? "Examples" : "Renders", (p) => p.startsWith("/gallery"))}
       </nav>
       <div className="spacer" />
       {status && (

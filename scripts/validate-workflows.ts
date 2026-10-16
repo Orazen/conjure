@@ -7,6 +7,8 @@ import { config } from "../server/config.ts";
 import { EffectLibrary } from "../server/effects.ts";
 import { ASPECTS, QUALITIES, buildWorkflow, buildPortraitWorkflow } from "../server/workflow.ts";
 import { loadSchemas, validateGraph } from "../server/validate.ts";
+import { loadGraph } from "../server/workflow.ts";
+import { WIZARD_WORKFLOW } from "../server/wizard.ts";
 
 const schemas = loadSchemas(join(config.workflowsDir, "node-schemas.json"));
 const effects = await new EffectLibrary(config.effectsDir, join(config.dataDir, "effects")).list();
@@ -31,6 +33,13 @@ checked++;
 if (portraitErrors.length) {
   failures++;
   console.error(`✘ sample portrait\n  ${portraitErrors.join("\n  ")}`);
+}
+
+const wizardErrors = validateGraph(loadGraph(config.workflowsDir, WIZARD_WORKFLOW), schemas);
+checked++;
+if (wizardErrors.length) {
+  failures++;
+  console.error(`✘ effect wizard\n  ${wizardErrors.join("\n  ")}`);
 }
 
 console.log(`${failures ? "✘" : "✔"} ${checked - failures}/${checked} workflow builds valid across ${effects.length} effects`);

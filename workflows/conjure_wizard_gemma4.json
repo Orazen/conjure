@@ -1,0 +1,77 @@
+{
+  "system": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": ""
+    },
+    "_meta": {
+      "title": "Conjure: system prompt"
+    }
+  },
+  "llm": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "gemma4_e4b_it_fp8_scaled.safetensors",
+      "type": "stable_diffusion",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "Gemma 4 E4B (open weights LLM)"
+    }
+  },
+  "load_image": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "conjure_input.png"
+    },
+    "_meta": {
+      "title": "Conjure: input photo (optional)"
+    }
+  },
+  "generate": {
+    "class_type": "TextGenerate",
+    "inputs": {
+      "clip": [
+        "llm",
+        0
+      ],
+      "prompt": "",
+      "image": [
+        "load_image",
+        0
+      ],
+      "max_length": 1400,
+      "sampling_mode": "on",
+      "sampling_mode.temperature": 0.7,
+      "sampling_mode.top_k": 64,
+      "sampling_mode.top_p": 0.95,
+      "sampling_mode.min_p": 0.05,
+      "sampling_mode.repetition_penalty": 1.05,
+      "sampling_mode.seed": 42,
+      "sampling_mode.presence_penalty": 0,
+      "thinking": false,
+      "use_default_template": true,
+      "system_prompt": [
+        "system",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Conjure: write with Gemma 4"
+    }
+  },
+  "save_text": {
+    "class_type": "SaveText",
+    "inputs": {
+      "text": [
+        "generate",
+        0
+      ],
+      "filename_prefix": "conjure/wizard",
+      "format": "txt"
+    },
+    "_meta": {
+      "title": "Conjure: save text"
+    }
+  }
+}

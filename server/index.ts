@@ -13,6 +13,9 @@ import { ASPECTS, QUALITIES, SIZES, buildWorkflow, type Aspect, type Quality } f
 import { ACCEPTED_TYPES, prepareInput } from "./image.ts";
 import { createJob, store } from "./jobs.ts";
 import { hasFfmpeg, makeReel } from "./media.ts";
+import { wizardRecipe, wizardSubject } from "./wizard.ts";
+import { friendlyError } from "./jobs.ts";
+import sharp from "sharp";
 
 export const library = new EffectLibrary(config.effectsDir, dataPaths.customEffects);
 
@@ -27,7 +30,12 @@ function exampleFor(id: string) {
   };
   const video = pick(/^effect\.(mp4|webm)$/);
   if (!video) return undefined;
-  return { video, input: pick(/^input\.(png|jpe?g|webp)$/), endFrame: pick(/^end_frame\.(png|jpe?g|webp)$/) };
+  return {
+    video,
+    preview: pick(/^preview\.(mp4|webm)$/),
+    input: pick(/^input\.(png|jpe?g|webp)$/),
+    endFrame: pick(/^end_frame\.(png|jpe?g|webp)$/),
+  };
 }
 
 const backendLabel: Record<typeof config.backend, string> = {
@@ -134,6 +142,36 @@ app.post("/api/jobs", async (c) => {
     subject: subject || effect.subject,
   });
   return c.json(job, 202);
+});
+
+/** Downscale a photo for the language model (it only needs to recognise the subject). */
+async function photoForLlm(form: FormData): Promise<Buffer | undefined> {
+  const file = form.get("image");
+  if (!(file instanceof File) || !file.size) return undefined;
+  if (file.size > config.maxUploadBytes) throw new Error("photo is larger than 20 MB");
+  return sharp(new Uint8Array(await file.arrayBuffer())).rotate().resize(768, 768, { fit: "inside" }).removeAlpha().png().toBuffer();
+}
+
+app.post("/api/wizard/recipe", async (c) => {
+  const form = await c.req.formData();
+  const idea = String(form.get("idea") ?? "").trim().slice(0, 300);
+  if (idea.length < 3) return c.json({ error: "describe the effect in a few words" }, 400);
+  try {
+    const { effect, raw } = await wizardRecipe(idea, await photoForLlm(form));
+    return c.json({ effect, raw });
+  } catch (err) {
+    return c.json({ error: friendlyError(err) }, 502);
+  }
+});
+
+app.post("/api/wizard/subject", async (c) => {
+  try {
+    const photo = await photoForLlm(await c.req.formData());
+    if (!photo) return c.json({ error: "attach a photo as `image`" }, 400);
+    return c.json({ subject: await wizardSubject(photo) });
+  } catch (err) {
+    return c.json({ error: friendlyError(err) }, 502);
+  }
 });
 
 app.get("/api/jobs", (c) => c.json(store.list().slice(0, 200)));

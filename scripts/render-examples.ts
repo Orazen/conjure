@@ -19,6 +19,7 @@ import { prepareInput } from "../server/image.ts";
 import { SIZES } from "../server/workflow.ts";
 import { runWorkflow } from "../server/render.ts";
 import { friendlyError } from "../server/jobs.ts";
+import { hasFfmpeg, makePreview } from "../server/media.ts";
 
 const arg = (k: string) => process.argv.find((a) => a.startsWith(`--${k}=`))?.split("=")[1];
 const only = arg("only")?.split(",");
@@ -82,6 +83,7 @@ for (const effect of effects) {
         else if (o.nodeId === "save_video") await o.toFile(join(dir, "effect.mp4"));
       },
     });
+    if (hasFfmpeg()) await makePreview(join(dir, "effect.mp4"), join(dir, "preview.mp4"));
     const secs = (Date.now() - t0) / 1000;
     totalSeconds += secs;
     await writeFile(

@@ -96,3 +96,14 @@ describe("api (mock backend)", () => {
     expect((await app.request("/api/jobs", { method: "POST", body: fd })).status).toBe(415);
   });
 });
+
+describe("wizard api (mock backend)", () => {
+  it("drafts a recipe from an idea", async () => {
+    const fd = new FormData();
+    fd.set("idea", "turn me into a chocolate statue");
+    const res = await app.request("/api/wizard/recipe", { method: "POST", body: fd });
+    expect(res.status).toBe(200);
+    const body = (await res.json()) as { effect: { pipeline: string; id: string } };
+    expect(body.effect.pipeline).toBe("transform");
+  });
+});

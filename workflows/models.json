@@ -1,13 +1,68 @@
 {
   "_note": "Every model Conjure uses. All open weights. Put each file in ComfyUI/models/<directory>/. Both Hugging Face repos are gated: accept the terms on the model page first.",
   "models": [
-    { "name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors", "directory": "diffusion_models", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors", "role": "LTX-2.5 22B distilled video+audio transformer", "license": "LTX-2.x Community License" },
-    { "name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors", "directory": "text_encoders", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors", "role": "LTX-2.5 text encoder", "license": "LTX-2.x Community License" },
-    { "name": "ltx-2.5-video-vae-bf16.safetensors", "directory": "vae", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors", "role": "LTX-2.5 video VAE", "license": "LTX-2.x Community License" },
-    { "name": "ltx-2.5-audio-vae-bf16.safetensors", "directory": "vae", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors", "role": "LTX-2.5 audio VAE", "license": "LTX-2.x Community License" },
-    { "name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors", "directory": "latent_upscale_models", "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors", "role": "LTX-2.5 x2 latent upscaler (motion effects)", "license": "LTX-2.x Community License" },
-    { "name": "flux3_image_klein_sd_int8_convrot.safetensors", "directory": "diffusion_models", "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/diffusion_models/flux3_image_klein_sd_int8_convrot.safetensors", "role": "FLUX 3 Image Klein (distilled): paints the end frame for transform effects", "license": "FLUX 3 Image Klein license (see Hugging Face)" },
-    { "name": "qwen3vl_4b_int8_convrot.safetensors", "directory": "text_encoders", "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/text_encoders/qwen3vl_4b_int8_convrot.safetensors", "role": "FLUX 3 text encoder", "license": "FLUX 3 Image Klein license (see Hugging Face)" },
-    { "name": "flux2-vae.safetensors", "directory": "vae", "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/vae/flux2-vae.safetensors", "role": "FLUX VAE", "license": "FLUX 3 Image Klein license (see Hugging Face)" }
+    {
+      "name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "directory": "diffusion_models",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "role": "LTX-2.5 22B distilled video+audio transformer",
+      "license": "LTX-2.x Community License"
+    },
+    {
+      "name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "directory": "text_encoders",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "role": "LTX-2.5 text encoder",
+      "license": "LTX-2.x Community License"
+    },
+    {
+      "name": "ltx-2.5-video-vae-bf16.safetensors",
+      "directory": "vae",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "role": "LTX-2.5 video VAE",
+      "license": "LTX-2.x Community License"
+    },
+    {
+      "name": "ltx-2.5-audio-vae-bf16.safetensors",
+      "directory": "vae",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "role": "LTX-2.5 audio VAE",
+      "license": "LTX-2.x Community License"
+    },
+    {
+      "name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "directory": "latent_upscale_models",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "role": "LTX-2.5 x2 latent upscaler (motion effects)",
+      "license": "LTX-2.x Community License"
+    },
+    {
+      "name": "flux3_image_klein_sd_int8_convrot.safetensors",
+      "directory": "diffusion_models",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/diffusion_models/flux3_image_klein_sd_int8_convrot.safetensors",
+      "role": "FLUX 3 Image Klein (distilled): paints the end frame for transform effects",
+      "license": "FLUX 3 Image Klein license (see Hugging Face)"
+    },
+    {
+      "name": "qwen3vl_4b_int8_convrot.safetensors",
+      "directory": "text_encoders",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/text_encoders/qwen3vl_4b_int8_convrot.safetensors",
+      "role": "FLUX 3 text encoder",
+      "license": "FLUX 3 Image Klein license (see Hugging Face)"
+    },
+    {
+      "name": "flux2-vae.safetensors",
+      "directory": "vae",
+      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/main/vae/flux2-vae.safetensors",
+      "role": "FLUX VAE",
+      "license": "FLUX 3 Image Klein license (see Hugging Face)"
+    },
+    {
+      "name": "gemma4_e4b_it_fp8_scaled.safetensors",
+      "directory": "text_encoders",
+      "url": "https://huggingface.co/Comfy-Org/gemma-4/resolve/main/text_encoders/gemma4_e4b_it_fp8_scaled.safetensors",
+      "role": "Gemma 4 E4B: the Effect Wizard (writes recipes, names the subject of a photo). Optional.",
+      "license": "Gemma 4 license (see Hugging Face)"
+    }
   ]
 }

@@ -19,11 +19,11 @@ export interface Effect {
   author: string;
   version: 1;
   source?: "builtin" | "custom";
-  example?: { video: string; input?: string; endFrame?: string };
+  example?: { video: string; preview?: string; input?: string; endFrame?: string };
 }
 
 export interface Status {
-  backend: "cloud" | "deployment" | "local" | "mock";
+  backend: "cloud" | "deployment" | "local" | "mock" | "showcase";
   label: string;
   baseUrl: string | null;
   ffmpeg: boolean;
@@ -55,13 +55,28 @@ export interface Job {
   recipe: Effect;
 }
 
+/** Static build for GitHub Pages: real example renders + the builder, no backend. */
+export const SHOWCASE = import.meta.env.VITE_SHOWCASE === "1";
+export const SHOWCASE_MSG =
+  "This is the live showcase, so it can't render here. Clone the repo and run Conjure with your own Comfy key or GPU (3 commands).";
+
+interface ShowcaseData {
+  repo: string | null;
+  effects: Effect[];
+  samples: string[];
+  gallery: Job[];
+}
+let showcase: Promise<ShowcaseData> | undefined;
+const sc = () => (showcase ??= fetch("data/showcase.json").then((r) => r.json() as Promise<ShowcaseData>));
+const notHere = <T,>(): Promise<T> => Promise.reject(new Error(SHOWCASE_MSG));
+
 async function json<T>(res: Response): Promise<T> {
   const body = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
   return body as T;
 }
 
-export const api = {
+const live = {
   status: () => fetch("/api/status").then((r) => json<Status>(r)),
   effects: () => fetch("/api/effects").then((r) => json<Effect[]>(r)),
   samples: () => fetch("/api/samples").then((r) => json<string[]>(r)),
@@ -76,6 +91,17 @@ export const api = {
       json<Effect>(r),
     ),
   deleteEffect: (id: string) => fetch(`/api/effects/${id}`, { method: "DELETE" }).then((r) => json<{ ok: true }>(r)),
+  wizardRecipe: (idea: string, photo?: Blob) => {
+    const fd = new FormData();
+    fd.set("idea", idea);
+    if (photo) fd.set("image", photo, "photo" + extFor(photo.type));
+    return fetch("/api/wizard/recipe", { method: "POST", body: fd }).then((r) => json<{ effect: Effect; raw: string }>(r));
+  },
+  wizardSubject: (photo: Blob) => {
+    const fd = new FormData();
+    fd.set("image", photo, "photo" + extFor(photo.type));
+    return fetch("/api/wizard/subject", { method: "POST", body: fd }).then((r) => json<{ subject: string }>(r));
+  },
   reel: (id: string) => fetch(`/api/jobs/${id}/reel`, { method: "POST" }).then((r) => json<{ reel: string }>(r)),
   createJob: (opts: {
     photo: Blob;
@@ -99,6 +125,39 @@ export const api = {
     return fetch("/api/jobs", { method: "POST", body: fd }).then((r) => json<Job>(r));
   },
 };
+
+const showcaseApi: typeof live = {
+  status: () =>
+    sc().then((d) => ({
+      backend: "showcase" as const,
+      label: "Live showcase",
+      baseUrl: null,
+      ffmpeg: false,
+      githubRepo: d.repo,
+      aspects: ["9:16", "4:5", "1:1", "16:9"],
+      qualities: ["draft", "standard"],
+    })),
+  effects: () => sc().then((d) => d.effects),
+  samples: () => sc().then((d) => d.samples),
+  jobs: () => sc().then((d) => d.gallery),
+  job: (id: string) => sc().then((d) => d.gallery.find((j) => j.id === id) ?? Promise.reject(new Error("not found"))),
+  validate: async (effect: unknown) => {
+    const { EffectSchema, describeError } = await import("../../shared/recipe.ts");
+    try {
+      return { ok: true, effect: EffectSchema.parse(effect) as Effect };
+    } catch (err) {
+      return { ok: false, error: describeError(err) };
+    }
+  },
+  saveEffect: () => notHere(),
+  deleteEffect: () => notHere(),
+  wizardRecipe: () => notHere(),
+  wizardSubject: () => notHere(),
+  reel: () => notHere(),
+  createJob: () => notHere(),
+};
+
+export const api: typeof live = SHOWCASE ? showcaseApi : live;
 
 function extFor(type: string) {
   return type === "image/png" ? ".png" : type === "image/webp" ? ".webp" : ".jpg";
