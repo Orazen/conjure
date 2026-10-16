@@ -8,9 +8,12 @@ import { HeroReel } from "./Showcase.tsx";
 const FILTERS = [
   { id: "all", label: "All" },
   { id: "transform", label: "Transform" },
-  { id: "motion", label: "Motion + camera" },
-  { id: "custom", label: "My effects" },
+  { id: "motion", label: "Motion and camera" },
+  { id: "custom", label: "Yours" },
 ] as const;
+
+/** How many of the first effects get a tall tile (REFERENCE.md: no grid of identical rectangles). */
+const FEATURED = 3;
 
 export function EffectsPage() {
   const { effects, status } = useApp();
@@ -27,62 +30,56 @@ export function EffectsPage() {
     });
   }, [effects, filter, q]);
 
+  const showcase = status?.backend === "showcase";
+
   return (
     <>
       <section className="hero">
         <div>
-          <h1>
-            One photo. One tap.
-            <br />
-            <em>A whole VFX shot.</em>
-          </h1>
-          <p>
-            Conjure is an open-source take on one-tap video effects. Each effect is a small recipe file. FLUX 3 paints
-            where the shot ends up, and LTX-2.5 animates the move, with sound. Every model has open weights, and it all
-            runs on the Comfy Developer Platform.
+          <h1 className="t-display">One photo, one tap, a finished VFX shot.</h1>
+          <p className="lead">
+            Pick an effect and Conjure turns your photo into a short video with sound. FLUX 3 paints where the shot ends up, LTX-2.5
+            animates the move, and every model is open weights running on the Comfy Developer Platform.
           </p>
-          <div className="chips">
-            <span className="tag">{effects.length} effects</span>
-            <span className="tag">open weights only</span>
-            <span className="tag">video + generated audio</span>
-            <span className="tag">remix + share recipes</span>
+          <div className="meta">
+            {effects.length} effects · open weights only · video with generated sound · recipes you can remix and share
           </div>
-          {status?.backend === "showcase" && (
-            <p className="note" style={{ marginTop: 16 }}>
-              Live showcase: every clip here was rendered by Conjure. Open any effect to scrub the before/after, remix it in the
-              builder, or share it. Run it locally to use your own photos.
+          {showcase && (
+            <p className="notice">
+              <strong>Live showcase.</strong> Every clip here was rendered by Conjure. Open an effect to scrub the before and
+              after, remix it in the builder, or share it. Run Conjure locally to use your own photos.
             </p>
           )}
           {status?.backend === "mock" && (
-            <p className="note" style={{ marginTop: 16 }}>
-              Mock mode: renders are simulated with ffmpeg so you can explore the app. Add <code>COMFY_API_KEY</code>{" "}
-              to <code>.env</code> to render for real on Comfy Cloud.
+            <p className="notice">
+              <strong>Mock mode.</strong> Renders are simulated with ffmpeg so you can try the app. Add <code>COMFY_API_KEY</code> to{" "}
+              <code>.env</code> to render for real on Comfy Cloud.
             </p>
           )}
         </div>
-        {status?.backend === "showcase" ? <HeroReel /> : <PhotoDock />}
+        {showcase ? <HeroReel /> : <PhotoDock />}
       </section>
 
       <ImagineBar />
 
       <div className="toolbar">
-        <h2>Effects</h2>
-        <div className="chips">
+        <h2 className="t-section">Effects</h2>
+        <div className="tabs" role="tablist" aria-label="Filter effects">
           {FILTERS.map((f) => (
-            <button key={f.id} className={`chip ${filter === f.id ? "on" : ""}`} onClick={() => setFilter(f.id)}>
+            <button key={f.id} role="tab" aria-selected={filter === f.id} className={filter === f.id ? "on" : ""} onClick={() => setFilter(f.id)}>
               {f.label}
             </button>
           ))}
         </div>
         <div className="spacer" />
-        <input className="search" placeholder="Search effects…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search effects" />
-        <a className="btn small" href="#/builder">+ New effect</a>
+        <input className="search" placeholder="Search effects" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search effects" />
+        <a className="btn" href="#/builder">New effect</a>
       </div>
 
       {shown.length ? (
         <div className="grid">
-          {shown.map((e) => (
-            <EffectCard key={e.id} effect={e} onOpen={() => go(`/effect/${encodeURIComponent(e.id)}`)} />
+          {shown.map((e, i) => (
+            <EffectCard key={e.id} effect={e} tall={filter === "all" && !q && i < FEATURED} onOpen={() => go(`/effect/${encodeURIComponent(e.id)}`)} />
           ))}
         </div>
       ) : (
@@ -92,7 +89,7 @@ export function EffectsPage() {
               You haven't made an effect yet. <a href="#/builder">Open the Effect Builder</a>.
             </>
           ) : (
-            "No effects match."
+            "No effects match that search."
           )}
         </div>
       )}

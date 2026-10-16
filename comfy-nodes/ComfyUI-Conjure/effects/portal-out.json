@@ -2,7 +2,6 @@
   "id": "portal-out",
   "name": "Portal Out",
   "tagline": "A glowing portal tears open and you step through.",
-  "icon": "🌀",
   "colors": [
     "#c77dff",
     "#10002b"

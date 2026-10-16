@@ -2,7 +2,6 @@
   "id": "earth-zoom-out",
   "name": "Earth Zoom Out",
   "tagline": "Rocket back from your face to orbit in one shot.",
-  "icon": "🌍",
   "colors": [
     "#7dd3fc",
     "#0c4a6e"

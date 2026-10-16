@@ -27,7 +27,7 @@ How the app renders:
 
 Fields:
 - id: lowercase-dashes, 2-40 chars. name: 2-4 words, catchy. tagline: one fun sentence (max 120 chars).
-- icon: one emoji. colors: two hex colours that match the effect (light, dark).
+- colors: two hex colours that match the effect (light, dark).
 - pipeline: "transform" or "motion". tags: 2-4 lowercase words.
 - subject: what {subject} means by default, usually "the person".
 - endFrame (transform only): an imperative image-edit instruction, 40-90 words. Describe the end state concretely (materials, colours, textures, lighting), then finish with: "Keep the exact same pose, framing, camera angle, background and lighting."
@@ -75,8 +75,8 @@ export function repairRecipe(raw: unknown, idea: string): Effect {
   if ((r.id as string).length < 2) r.id = "my-effect";
   if (typeof r.tagline !== "string" || r.tagline.length < 4) r.tagline = idea.slice(0, 120);
   r.tagline = String(r.tagline).slice(0, 140);
-  if (typeof r.icon !== "string" || !r.icon) r.icon = "✨";
-  r.icon = [...String(r.icon)].slice(0, 2).join("");
+  if (typeof r.icon === "string" && r.icon) r.icon = [...r.icon].slice(0, 2).join("");
+  else delete r.icon;
   const hex = /^#[0-9a-fA-F]{6}$/;
   if (!Array.isArray(r.colors) || r.colors.length !== 2 || !r.colors.every((c) => typeof c === "string" && hex.test(c)))
     r.colors = ["#a78bfa", "#1e1b4b"];
@@ -143,7 +143,6 @@ export function mockRecipe(idea: string): Effect {
     {
       name: what.split(/\s+/).slice(0, 3).map((w) => w[0]?.toUpperCase() + w.slice(1)).join(" "),
       tagline: `Become ${what}.`,
-      icon: "✨",
       pipeline: "transform",
       tags: ["wizard"],
       subject: "the person",

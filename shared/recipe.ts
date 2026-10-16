@@ -20,7 +20,8 @@ export const EffectSchema = z.object({
     .regex(/^[a-z0-9][a-z0-9-]{1,39}$/, "lowercase letters, digits and dashes (2-40 chars)"),
   name: z.string().min(2).max(40),
   tagline: z.string().min(4).max(140),
-  icon: z.string().min(1).max(8).default("✨"),
+  /** Legacy: an emoji. Kept for old recipes; the UI no longer shows it. */
+  icon: z.string().max(8).optional(),
   colors: z.tuple([hex, hex]).default(["#a78bfa", "#1e1b4b"]),
   pipeline: z.enum(PIPELINES),
   tags: z.array(z.string().max(24)).max(8).default([]),

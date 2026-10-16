@@ -1,6 +1,6 @@
 <div align="center">
 
-# ✦ Conjure
+# Conjure
 
 **One photo. One tap. A whole VFX shot.**
 
@@ -25,6 +25,7 @@ Every effect is a small JSON recipe that anyone can remix, share as a link, or c
 - **Use the effects in plain ComfyUI too.** You get 22 ready-to-run workflows, plus a small custom node pack (**ComfyUI-Conjure**) that turns any recipe into prompts and frame counts inside your own graphs.
 - **Open weights only.** No partner nodes or closed APIs. The same code runs on Comfy Cloud, a Comfy API deployment, or a self-hosted ComfyUI through `comfy-api-proxy`.
 - **Made to be shared.** Before/after drag slider, one-click vertical **before→after reel**, ready-made caption, 9:16 by default.
+- **Designed, not generated-looking.** One accent, two typefaces, and no gradients, emoji icons or pill tags. The rules are in [`REFERENCE.md`](REFERENCE.md) and the build system is in [`DESIGN.md`](DESIGN.md).
 
 ## How it works
 
@@ -110,28 +111,29 @@ Exact download URLs are in [`workflows/models.json`](workflows/models.json). The
 
 | Effect | What happens | Models | id |
 |---|---|---|---|
-| 🪙 **Midas Touch** | Liquid gold creeps over you until you're a solid gold statue. | FLUX 3 → LTX-2.5 | `midas-touch` |
-| 🎈 **Inflate** | Puff up like a balloon and float off the ground. | FLUX 3 → LTX-2.5 | `inflate` |
-| 🌫️ **Dust to Dust** | Disintegrate into ash that drifts away on the wind. | LTX-2.5 | `dust-to-dust` |
-| 🧸 **Boxed Figure** | Shrink into a collectible action figure sealed in its box. | FLUX 3 → LTX-2.5 | `boxed-figure` |
-| 🌍 **Earth Zoom Out** | Rocket back from your face to orbit in one shot. | LTX-2.5 | `earth-zoom-out` |
-| 🤖 **Chrome Reveal** | Your skin peels away to reveal the android underneath. | FLUX 3 → LTX-2.5 | `chrome-reveal` |
-| 🗿 **Turn to Stone** | Cracks race across your skin and you petrify into a marble statue. | FLUX 3 → LTX-2.5 | `turn-to-stone` |
-| 🔥 **Ignite** | Your hands burst into controlled superhero flames. | LTX-2.5 | `ignite` |
-| 🧊 **Deep Freeze** | Frost spreads until you're a glittering ice sculpture. | FLUX 3 → LTX-2.5 | `deep-freeze` |
-| ⏱️ **Bullet Time** | Time freezes while the camera orbits around you. | LTX-2.5 | `bullet-time` |
-| 🐺 **Full Moon** | A werewolf transformation, howl included. | FLUX 3 → LTX-2.5 | `full-moon` |
-| 🪽 **Angel Wings** | Huge feathered wings unfold from your back. | LTX-2.5 | `angel-wings` |
-| 🏺 **Clay Day** | Become a handmade stop-motion clay character. | FLUX 3 → LTX-2.5 | `clay-day` |
-| 🌀 **Portal Out** | A glowing portal tears open and you step through. | LTX-2.5 | `portal-out` |
-| ✏️ **Toon Shift** | The world redraws itself as a hand-drawn anime frame. | FLUX 3 → LTX-2.5 | `toon-shift` |
-| ⚡ **Thunder Call** | Summon lightning that crackles around you. | LTX-2.5 | `thunder-call` |
-| 📄 **Origami** | Fold into a crisp paper origami sculpture. | FLUX 3 → LTX-2.5 | `origami` |
-| 🪐 **Zero Gravity** | Gravity switches off and everything floats. | LTX-2.5 | `zero-gravity` |
-| 👾 **8-Bit** | Glitch into a retro pixel-art sprite. | FLUX 3 → LTX-2.5 | `eight-bit` |
-| 🎯 **Crash Zoom** | A dramatic crash zoom straight into your eyes. | LTX-2.5 | `crash-zoom` |
-| 🎉 **Confetti Pop** | Burst into a cloud of party confetti. | LTX-2.5 | `confetti-pop` |
-| 🫠 **Meltdown** | Melt into a glossy puddle like wax in the sun. | LTX-2.5 | `meltdown` |
+| **Midas Touch** | Liquid gold creeps over you until you're a solid gold statue. | FLUX 3 → LTX-2.5 | `midas-touch` |
+| **Inflate** | Puff up like a balloon and float off the ground. | FLUX 3 → LTX-2.5 | `inflate` |
+| **Dust to Dust** | Disintegrate into ash that drifts away on the wind. | LTX-2.5 | `dust-to-dust` |
+| **Boxed Figure** | Shrink into a collectible action figure sealed in its box. | FLUX 3 → LTX-2.5 | `boxed-figure` |
+| **Earth Zoom Out** | Rocket back from your face to orbit in one shot. | LTX-2.5 | `earth-zoom-out` |
+| **Chrome Reveal** | Your skin peels away to reveal the android underneath. | FLUX 3 → LTX-2.5 | `chrome-reveal` |
+| **Turn to Stone** | Cracks race across your skin and you petrify into a marble statue. | FLUX 3 → LTX-2.5 | `turn-to-stone` |
+| **Ignite** | Your hands burst into controlled superhero flames. | LTX-2.5 | `ignite` |
+| **Deep Freeze** | Frost spreads until you're a glittering ice sculpture. | FLUX 3 → LTX-2.5 | `deep-freeze` |
+| **Bullet Time** | Time freezes while the camera orbits around you. | LTX-2.5 | `bullet-time` |
+| **Full Moon** | A werewolf transformation, howl included. | FLUX 3 → LTX-2.5 | `full-moon` |
+| **Angel Wings** | Huge feathered wings unfold from your back. | LTX-2.5 | `angel-wings` |
+| **Clay Day** | Become a handmade stop-motion clay character. | FLUX 3 → LTX-2.5 | `clay-day` |
+| **Portal Out** | A glowing portal tears open and you step through. | LTX-2.5 | `portal-out` |
+| **Toon Shift** | The world redraws itself as a hand-drawn anime frame. | FLUX 3 → LTX-2.5 | `toon-shift` |
+| **Thunder Call** | Summon lightning that crackles around you. | LTX-2.5 | `thunder-call` |
+| **Origami** | Fold into a crisp paper origami sculpture. | FLUX 3 → LTX-2.5 | `origami` |
+| **Zero Gravity** | Gravity switches off and everything floats. | LTX-2.5 | `zero-gravity` |
+| **8-Bit** | Glitch into a retro pixel-art sprite. | FLUX 3 → LTX-2.5 | `eight-bit` |
+| **Crash Zoom** | A dramatic crash zoom straight into your eyes. | LTX-2.5 | `crash-zoom` |
+| **Confetti Pop** | Burst into a cloud of party confetti. | LTX-2.5 | `confetti-pop` |
+| **Meltdown** | Melt into a glossy puddle like wax in the sun. | LTX-2.5 | `meltdown` |
+
 ## Make your own effect
 
 The fastest way is to type the idea into **"Imagine any effect…"**. Gemma 4 drafts the recipe and opens it in the builder for you. Or open **Effect Builder** and write it yourself, or write a file in `effects/`:
@@ -141,7 +143,6 @@ The fastest way is to type the idea into **"Imagine any effect…"**. Gemma 4 dr
   "id": "midas-touch",
   "name": "Midas Touch",
   "tagline": "Liquid gold creeps over you until you're a solid gold statue.",
-  "icon": "🪙",
   "colors": ["#f7d774", "#8a5a00"],
   "pipeline": "transform",
   "subject": "the person",
@@ -172,7 +173,7 @@ The full schema with validation lives in [`server/effects.ts`](server/effects.ts
 
 - `workflows/effects/<effect>.json`: one ready-to-run API-format workflow per effect (9:16, 5 s). Drag it into ComfyUI, pick your photo in **Conjure: input photo**, and queue.
 - `workflows/ui/*.json`: the two base pipelines, laid out in groups with model download links.
-- `comfy-nodes/ComfyUI-Conjure`: copy it into `ComfyUI/custom_nodes/` to get the **Conjure Effect Recipe ✦** node. It outputs `motion_prompt`, `end_frame_prompt`, `negative_prompt`, `frames` and `fps` for any bundled or pasted recipe, so effects drop into your own graphs. Its output matches the app's prompt builder byte for byte (this is tested). Example graphs are in `example_workflows/`.
+- `comfy-nodes/ComfyUI-Conjure`: copy it into `ComfyUI/custom_nodes/` to get the **Conjure Effect Recipe** node. It outputs `motion_prompt`, `end_frame_prompt`, `negative_prompt`, `frames` and `fps` for any bundled or pasted recipe, so effects drop into your own graphs. Its output matches the app's prompt builder byte for byte (this is tested). Example graphs are in `example_workflows/`.
 
 ## Scripts
 
@@ -199,7 +200,8 @@ web/                React UI: gallery, effect sheet, before/after compare, Effec
 comfy-nodes/        ComfyUI-Conjure custom node pack
 scripts/            doctor, samples, examples, validate, export
 test/               vitest
-docs/               how it works, demo script, submission checklist
+docs/               demo script, social posts, submission checklist
+REFERENCE.md        visual rules (colours, type, never-do list); DESIGN.md = tokens, components, decision log
 ```
 
 ## How it was verified

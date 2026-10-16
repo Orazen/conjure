@@ -3,6 +3,7 @@ import { encodeRecipe, stripMeta } from "../api.ts";
 import { useApp, go } from "../state.tsx";
 import { EffectArt, pipelineLabel } from "./EffectCard.tsx";
 import { RenderPanel } from "./RenderPanel.tsx";
+import { IconClose } from "./Icons.tsx";
 
 export function EffectSheet({ effectId }: { effectId: string }) {
   const { effects, toast } = useApp();
@@ -22,37 +23,30 @@ export function EffectSheet({ effectId }: { effectId: string }) {
   if (!effect) return effects.length ? <div className="scrim" onClick={close} /> : null;
 
   const shareLink = `${window.location.origin}${window.location.pathname}#/builder?recipe=${encodeRecipe(stripMeta(effect))}`;
+  const meta = [pipelineLabel(effect), `${effect.duration} s`, effect.sound ? "with sound" : null, effect.tags.join(", ") || null, `by ${effect.author}`]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <>
       <div className="scrim" onClick={close} />
       <aside className="drawer" role="dialog" aria-modal="true" aria-label={effect.name}>
         <div className="drawer-head">
-          <span style={{ fontSize: 26 }}>{effect.icon}</span>
           <div>
-            <h2>{effect.name}</h2>
-            <div style={{ color: "var(--muted)", fontSize: 13.5 }}>{effect.tagline}</div>
+            <h2 className="t-section">{effect.name}</h2>
+            <p>{effect.tagline}</p>
           </div>
           <button className="x" onClick={close} aria-label="Close">
-            ×
+            <IconClose />
           </button>
         </div>
         <div className="drawer-body">
-          <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: 16, alignItems: "start" }}>
-            <div className="card" style={{ cursor: "default" }}>
-              <div className="media">
-                <EffectArt effect={effect} playing />
-              </div>
+          <div style={{ display: "grid", gridTemplateColumns: "132px 1fr", gap: 16, alignItems: "start" }}>
+            <div className="tile" style={{ height: 176, cursor: "default" }}>
+              <EffectArt effect={effect} playing />
             </div>
-            <div style={{ display: "grid", gap: 10 }}>
-              <div className="chips">
-                <span className="tag">{pipelineLabel(effect)}</span>
-                <span className="tag">{effect.duration}s</span>
-                {effect.sound && <span className="tag">audio</span>}
-                {effect.tags.map((t) => (
-                  <span key={t} className="tag">#{t}</span>
-                ))}
-              </div>
+            <div style={{ display: "grid", gap: 12 }}>
+              <div className="t-caption">{meta}</div>
               <details>
                 <summary>Recipe</summary>
                 <pre className="recipe">
@@ -73,7 +67,6 @@ export function EffectSheet({ effectId }: { effectId: string }) {
                   Copy effect link
                 </button>
               </div>
-              <span style={{ fontSize: 12, color: "var(--faint)" }}>by {effect.author}</span>
             </div>
           </div>
           <RenderPanel key={effect.id} effect={effect} />

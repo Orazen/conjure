@@ -1,6 +1,6 @@
 # ComfyUI-Conjure
 
-One node, **Conjure Effect Recipe ✦**, that turns a [Conjure](../../README.md) effect recipe into the exact prompts and timing Conjure sends to **FLUX 3 Image Klein** and **LTX-2.5**, so any effect drops into your own graphs.
+One node, **Conjure Effect Recipe**, that turns a [Conjure](../../README.md) effect recipe into the exact prompts and timing Conjure sends to **FLUX 3 Image Klein** and **LTX-2.5**, so any effect drops into your own graphs.
 
 | Output | Wire it to |
 |---|---|

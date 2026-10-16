@@ -2,7 +2,6 @@
   "id": "chrome-reveal",
   "name": "Chrome Reveal",
   "tagline": "Your skin peels away to reveal the android underneath.",
-  "icon": "🤖",
   "colors": [
     "#e0e7ff",
     "#1e293b"

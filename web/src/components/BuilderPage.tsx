@@ -11,7 +11,7 @@ const BLANK_TRANSFORM: Draft = {
   id: "my-effect",
   name: "My Effect",
   tagline: "Describe the effect in one line.",
-  icon: "✨",
+  icon: "",
   colors: ["#a78bfa", "#1e1b4b"],
   pipeline: "transform",
   tags: [],
@@ -99,25 +99,23 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
 
   return (
     <>
-      <section style={{ padding: "28px 0 4px" }}>
-        <h1 style={{ fontFamily: "var(--serif)", fontWeight: 400, fontSize: 48, margin: "0 0 8px", letterSpacing: "-0.02em" }}>
-          Effect <em style={{ background: "var(--spell)", WebkitBackgroundClip: "text", color: "transparent" }}>Builder</em>
-        </h1>
-        <p style={{ color: "var(--muted)", maxWidth: 720, margin: 0 }}>
-          An effect is a small recipe: the final look, the motion, and the sound. Write one, test it on your photo, then
-          share it as a link or as a pull request that adds it for everyone. You never touch a node graph.
+      <section style={{ padding: "48px 0 0" }}>
+        <h1 className="t-title">Effect Builder</h1>
+        <p className="muted" style={{ maxWidth: 680, margin: "8px 0 0" }}>
+          An effect is a small recipe: the final look, the motion and the sound. Write one or describe it in a sentence, test it
+          on your photo, then share it as a link or as a pull request that adds it for everyone. No node graph needed.
         </p>
       </section>
 
       <div className="builder">
         <div style={{ display: "grid", gap: 16 }}>
-          <div className="section">
-            <h4>Describe it</h4>
+          <div className="panel">
+            <h4>Describe it in a sentence</h4>
             <ImagineBar compact />
           </div>
 
-          <div className="section">
-            <h4>Or start from</h4>
+          <div className="panel">
+            <h4>Or start from an existing effect</h4>
             <div className="row">
               <div className="field">
                 <select
@@ -131,25 +129,21 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
                     setIdTouched(true);
                   }}
                 >
-                  <option value="">Remix an existing effect…</option>
+                  <option value="">Choose an effect to remix</option>
                   {effects.map((e) => (
                     <option key={e.id} value={e.id}>
-                      {e.icon} {e.name}
+                      {e.name}
                     </option>
                   ))}
                 </select>
               </div>
-              <button className="btn small" onClick={() => (setDraft(BLANK_TRANSFORM), setIdTouched(false))}>Blank</button>
+              <button className="btn" onClick={() => (setDraft(BLANK_TRANSFORM), setIdTouched(false))}>Start blank</button>
             </div>
           </div>
 
-          <div className="section">
+          <div className="panel">
             <h4>Identity</h4>
             <div className="row">
-              <div className="field" style={{ flex: "0 0 70px", minWidth: 70 }}>
-                <label htmlFor="icon">Icon</label>
-                <input id="icon" value={draft.icon} maxLength={8} onChange={(e) => set("icon", e.target.value)} style={{ textAlign: "center", fontSize: 20 }} />
-              </div>
               <div className="field">
                 <label htmlFor="name">Name</label>
                 <input
@@ -161,7 +155,7 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
               </div>
               <div className="field">
                 <label htmlFor="id">ID (file name)</label>
-                <input id="id" value={draft.id} onChange={(e) => (setIdTouched(true), set("id", slug(e.target.value)))} />
+                <input id="id" className="mono" value={draft.id} onChange={(e) => (setIdTouched(true), set("id", slug(e.target.value)))} />
               </div>
             </div>
             <div className="row" style={{ marginTop: 12 }}>
@@ -179,17 +173,17 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
             </div>
           </div>
 
-          <div className="section">
+          <div className="panel">
             <h4>How it works</h4>
             <div className="seg" role="group" aria-label="Pipeline" style={{ marginBottom: 12 }}>
               <button className={draft.pipeline === "transform" ? "on" : ""} onClick={() => set("pipeline", "transform")}>
-                Transform · FLUX 3 → LTX-2.5
+                Transform
               </button>
               <button className={draft.pipeline === "motion" ? "on" : ""} onClick={() => set("pipeline", "motion")}>
-                Motion · LTX-2.5
+                Motion
               </button>
             </div>
-            <p style={{ margin: "0 0 12px", color: "var(--muted)", fontSize: 13.5 }}>
+            <p className="muted" style={{ margin: "0 0 12px", fontSize: 13, lineHeight: "18px" }}>
               {draft.pipeline === "transform"
                 ? "Transform effects end somewhere new. FLUX 3 paints the final frame from your photo, then LTX-2.5 animates the change from the first frame to the last."
                 : "Motion effects keep your photo as the first frame, and LTX-2.5 animates whatever happens next: particles, camera moves, superpowers."}
@@ -236,16 +230,16 @@ export function BuilderPage({ params }: { params: URLSearchParams }) {
         </div>
 
         <div className="preview">
-          <div style={{ maxWidth: 260 }}>
-            <EffectCard effect={recipe as Effect} onOpen={() => setTesting(true)} />
+          <div className="grid">
+            <EffectCard effect={recipe as Effect} tall onOpen={() => setTesting(true)} />
           </div>
-          {error && <div className="error">{error}</div>}
-          {idClash && <div className="note">"{recipe.id}" is already a built-in effect. Change the ID before you save.</div>}
+          {error && <p className="error">{error}</p>}
+          {idClash && <p className="notice" style={{ margin: 0 }}><strong>ID taken.</strong> "{recipe.id}" is a built-in effect. Change the ID before you save.</p>}
           <div className="actions">
             <button className="btn primary" disabled={!!error} onClick={() => setTesting(true)}>Test on my photo</button>
-            <button className="btn" disabled={!!error || idClash || status?.backend === "showcase"} onClick={save}>Save to My effects</button>
+            <button className="btn" disabled={!!error || idClash || status?.backend === "showcase"} onClick={save}>Save to your effects</button>
           </div>
-          <div className="section">
+          <div className="panel">
             <h4>Share</h4>
             <div className="actions">
               <button

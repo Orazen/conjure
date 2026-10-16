@@ -3,7 +3,7 @@ import { isVideo } from "../api.ts";
 
 /**
  * The result with a draggable before/after handle: the original photo is
- * revealed on the left of the handle, the effect plays on the right.
+ * revealed left of the handle, the effect plays on the right.
  */
 export function Compare({ before, after, aspect }: { before: string; after: string; aspect: string }) {
   const [pos, setPos] = useState(0);
@@ -36,7 +36,10 @@ export function Compare({ before, after, aspect }: { before: string; after: stri
             <img src={before} alt="Original photo" />
           </div>
           <div className="handle" style={{ left: `${pos}%` }}>
-            <div className="knob">⇆</div>
+            <div className="knob">
+              <i />
+              <i />
+            </div>
           </div>
           <div className="labels">
             <span>BEFORE</span>
@@ -52,7 +55,7 @@ export function Compare({ before, after, aspect }: { before: string; after: stri
           setPos(50);
         }}
       >
-        {on ? "Hide compare" : "Before / after"}
+        {on ? "Hide compare" : "Compare with photo"}
       </button>
     </div>
   );

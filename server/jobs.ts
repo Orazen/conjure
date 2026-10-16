@@ -26,7 +26,7 @@ export type JobStatus = "queued" | "running" | "succeeded" | "failed";
 
 export interface JobRecord {
   id: string;
-  effect: { id: string; name: string; icon: string; colors: [string, string]; pipeline: Effect["pipeline"] };
+  effect: { id: string; name: string; icon?: string; colors: [string, string]; pipeline: Effect["pipeline"] };
   status: JobStatus;
   stage: string;
   progress: number;

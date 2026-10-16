@@ -94,4 +94,4 @@ class ConjureEffectRecipe:
 
 
 NODE_CLASS_MAPPINGS = {"ConjureEffectRecipe": ConjureEffectRecipe}
-NODE_DISPLAY_NAME_MAPPINGS = {"ConjureEffectRecipe": "Conjure Effect Recipe ✦"}
+NODE_DISPLAY_NAME_MAPPINGS = {"ConjureEffectRecipe": "Conjure Effect Recipe"}

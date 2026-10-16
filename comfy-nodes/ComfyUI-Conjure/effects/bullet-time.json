@@ -2,7 +2,6 @@
   "id": "bullet-time",
   "name": "Bullet Time",
   "tagline": "Time freezes while the camera orbits around you.",
-  "icon": "⏱️",
   "colors": [
     "#d0f4de",
     "#1b4332"

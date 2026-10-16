@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { api } from "../api.ts";
 import { useApp } from "../state.tsx";
+import { IconUpload } from "./Icons.tsx";
 
 /** Drop / paste / pick a photo. It stays loaded, so you can try effect after effect. */
 export function PhotoDock() {
@@ -43,11 +44,10 @@ export function PhotoDock() {
       {photo ? (
         <div className="photo-row">
           <img src={photo.url} alt="Your photo" />
-          <div className="meta">
-            <div className="tag">Your photo</div>
-            <h3 style={{ margin: "8px 0 4px" }}>Ready to conjure</h3>
-            <p style={{ margin: "0 0 12px", color: "var(--muted)", fontSize: 14 }}>
-              Pick any effect below. Your photo stays loaded so you can try as many as you like.
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="t-label">Your photo</div>
+            <p className="muted" style={{ margin: "4px 0 12px", fontSize: 13, lineHeight: "18px" }}>
+              Pick any effect below. The photo stays loaded, so you can try as many as you like.
             </p>
             <div className="actions">
               <button className="btn small" onClick={() => input.current?.click()}>Change photo</button>
@@ -73,15 +73,15 @@ export function PhotoDock() {
             accept(e.dataTransfer.files[0]);
           }}
         >
-          <div style={{ fontSize: 34 }}>✦</div>
+          <IconUpload />
           <strong>Drop a photo here</strong>
-          <span>or click to choose · or paste with ⌘V / Ctrl+V</span>
-          <span style={{ fontSize: 12.5, color: "var(--faint)" }}>A clear shot of one person, pet or object works best.</span>
+          <span style={{ fontSize: 13, lineHeight: "18px" }}>Click to choose a file, or paste with Cmd+V / Ctrl+V.</span>
+          <span className="t-caption">A clear shot of one person, pet or object works best.</span>
         </div>
       )}
       {samples.length > 0 && (
         <div className="samples">
-          <span style={{ fontSize: 12.5, color: "var(--faint)" }}>No photo handy? Try a sample:</span>
+          <span className="t-caption">No photo handy? Try a sample:</span>
           {samples.slice(0, 6).map((s) => (
             <img key={s} src={s} alt="Sample photo" onClick={() => useSample(s)} />
           ))}

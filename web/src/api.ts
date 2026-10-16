@@ -4,7 +4,7 @@ export interface Effect {
   id: string;
   name: string;
   tagline: string;
-  icon: string;
+  icon?: string;
   colors: [string, string];
   pipeline: Pipeline;
   tags: string[];

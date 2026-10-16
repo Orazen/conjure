@@ -15,7 +15,6 @@ describe("effect wizard", () => {
     const e = repairRecipe(
       {
         name: "Chocolate Statue!!",
-        icon: "🍫🍫🍫",
         colors: ["brown", "#000"],
         pipeline: "transform",
         endFrame: "Turn {subject} into glossy milk chocolate. Keep the exact same pose.",

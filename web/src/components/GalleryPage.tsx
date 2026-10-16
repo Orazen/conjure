@@ -17,17 +17,16 @@ export function GalleryPage() {
   return (
     <>
       <div className="toolbar">
-        <h2>{showcase ? "Example renders" : "My renders"}</h2>
-        <span className="tag">{jobs.length}</span>
-        <div className="spacer" />
-        <span style={{ color: "var(--faint)", fontSize: 13 }}>
-          {showcase ? "Rendered with Conjure: FLUX 3 + LTX-2.5, open weights." : "Saved in your data/outputs folder."}
+        <h2 className="t-section">{showcase ? "Example renders" : "Your renders"}</h2>
+        <span className="t-caption">
+          {jobs.length} {jobs.length === 1 ? "render" : "renders"} ·{" "}
+          {showcase ? "made with Conjure on FLUX 3 and LTX-2.5, open weights" : "saved in data/outputs"}
         </span>
       </div>
       {open && (
-        <div style={{ marginBottom: 20 }}>
-          <div className="actions" style={{ marginBottom: 10 }}>
-            <button className="btn small" onClick={() => setOpen(undefined)}>← Back to all renders</button>
+        <div style={{ marginBottom: 32 }}>
+          <div className="actions" style={{ marginBottom: 12 }}>
+            <button className="btn small" onClick={() => setOpen(undefined)}>Back to all renders</button>
           </div>
           <JobView key={open.id} initial={open} />
         </div>
@@ -38,25 +37,30 @@ export function GalleryPage() {
         </div>
       ) : (
         <div className="grid">
-          {jobs.map((j) => (
-            <button key={j.id} className="card jobcard" onClick={() => (setOpen(j), window.scrollTo({ top: 0, behavior: "smooth" }))}>
-              <div className="media">
-                {j.outputs.video && isVideo(j.outputs.video) ? (
-                  <video src={j.outputs.video} poster={j.input} muted loop playsInline onMouseEnter={(e) => e.currentTarget.play()} onMouseLeave={(e) => e.currentTarget.pause()} />
-                ) : (
-                  <img src={j.outputs.endFrame ?? j.input} alt="" />
-                )}
-                <div className="badge">
-                  <span>{j.status === "succeeded" ? j.effect.name : j.status}</span>
+          {jobs.map((j, i) => (
+            <button
+              key={j.id}
+              className={`tile ${i % 5 === 0 ? "tall" : ""}`}
+              onClick={() => (setOpen(j), window.scrollTo({ top: 0, behavior: "smooth" }))}
+            >
+              {j.outputs.video && isVideo(j.outputs.video) ? (
+                <video
+                  src={j.outputs.video}
+                  poster={j.input}
+                  muted
+                  loop
+                  playsInline
+                  onMouseEnter={(e) => void e.currentTarget.play().catch(() => undefined)}
+                  onMouseLeave={(e) => e.currentTarget.pause()}
+                />
+              ) : (
+                <img src={j.outputs.endFrame ?? j.input} alt="" />
+              )}
+              <div className="caption">
+                <div className="name">{j.effect.name}</div>
+                <div className="sub">
+                  {j.status === "succeeded" ? new Date(j.createdAt).toLocaleDateString() : j.status} · {j.backend}
                 </div>
-              </div>
-              <div className="body">
-                <h3>
-                  {j.effect.icon} {j.effect.name}
-                </h3>
-                <p>
-                  {new Date(j.createdAt).toLocaleString()} · {j.backend}
-                </p>
               </div>
             </button>
           ))}

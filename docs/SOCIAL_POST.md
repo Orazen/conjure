@@ -2,7 +2,7 @@
 
 ## X / Twitter
 
-> I rebuilt one-tap viral video effects as open source ✦
+> I rebuilt one-tap viral video effects as open source
 >
 > Drop a photo and tap an effect: gold statue, inflate, disintegrate, earth zoom-out… with generated sound.
 >
