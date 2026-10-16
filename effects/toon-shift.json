@@ -1,0 +1,23 @@
+{
+  "id": "toon-shift",
+  "name": "Toon Shift",
+  "tagline": "The world redraws itself as a hand-drawn anime frame.",
+  "icon": "✏️",
+  "colors": [
+    "#ffd6e8",
+    "#6c63ff"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "anime",
+    "illustration",
+    "style"
+  ],
+  "subject": "the person",
+  "endFrame": "Restyle the entire image as a hand-drawn cel-shaded anime frame: clean ink outlines, flat vibrant colours with soft gradient shading, painterly background, expressive large eyes for {subject}. Same composition, pose and colour palette.",
+  "motion": "A shimmering wipe sweeps across the frame from left to right. Everything it passes is redrawn as a hand-drawn anime frame with ink outlines and cel shading, the background turning painterly. {subject} blinks and smiles as their hair catches a breeze with stylised anime motion.",
+  "sound": "a sparkling swoosh and a short upbeat anime-style musical sting",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

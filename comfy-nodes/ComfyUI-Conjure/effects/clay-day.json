@@ -1,0 +1,23 @@
+{
+  "id": "clay-day",
+  "name": "Clay Day",
+  "tagline": "Become a handmade stop-motion clay character.",
+  "icon": "🏺",
+  "colors": [
+    "#ffb169",
+    "#9c3d10"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "claymation",
+    "stop-motion",
+    "toy"
+  ],
+  "subject": "the person",
+  "endFrame": "Restyle the entire image as a handmade stop-motion claymation scene: {subject} becomes a plasticine clay figure with visible fingerprints, soft rounded shapes and slightly lumpy textures; the background becomes a miniature handcrafted clay set. Same composition and colours.",
+  "motion": "The scene softens as if being sculpted: {subject}'s skin and clothes take on a soft plasticine texture with visible fingerprints, edges rounding into handmade clay shapes while the background turns into a miniature clay set. {subject} gives a small stop-motion style wave at the end, slightly jerky like animation at twelve frames per second.",
+  "sound": "squishy clay sounds and a cheerful plucked-string jingle",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

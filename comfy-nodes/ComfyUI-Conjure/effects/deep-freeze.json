@@ -1,0 +1,23 @@
+{
+  "id": "deep-freeze",
+  "name": "Deep Freeze",
+  "tagline": "Frost spreads until you're a glittering ice sculpture.",
+  "icon": "🧊",
+  "colors": [
+    "#c8f1ff",
+    "#2a6f97"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "ice",
+    "frozen",
+    "winter"
+  ],
+  "subject": "the person",
+  "endFrame": "Convert {subject} into a translucent carved ice sculpture: clear blue-white ice with trapped air bubbles, frosted edges, and light refracting through the body; thin frost covers the ground nearby. Keep the exact same pose, framing, camera angle, background and lighting; keep {subject}'s face shape and proportions recognisable.",
+  "motion": "Cold mist rolls in around {subject}. Feathery frost crystals creep from the feet upward, the skin and clothing turning glassy and translucent, frost blooming across the hair, until {subject} is a sparkling ice sculpture catching the light. Snowflakes drift through the frame. Slow push-in.",
+  "sound": "crackling ice, a whistling cold wind, and delicate tinkling crystals",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

@@ -1,0 +1,22 @@
+{
+  "id": "meltdown",
+  "name": "Meltdown",
+  "tagline": "Melt into a glossy puddle like wax in the sun.",
+  "icon": "🫠",
+  "colors": [
+    "#fec5bb",
+    "#6d597a"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "melt",
+    "surreal",
+    "liquid"
+  ],
+  "subject": "the person",
+  "motion": "{subject} starts to soften like warm wax. Their features droop and slide, colours running in glossy rivulets as the whole body slowly melts downward into a shiny swirling puddle on the ground. Surreal, smooth, satisfying motion. Static camera.",
+  "sound": "slow gooey dripping, warm bubbling, and a satisfying final splat",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

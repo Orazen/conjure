@@ -1,0 +1,23 @@
+{
+  "id": "midas-touch",
+  "name": "Midas Touch",
+  "tagline": "Liquid gold creeps over you until you're a solid gold statue.",
+  "icon": "🪙",
+  "colors": [
+    "#f7d774",
+    "#8a5a00"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "gold",
+    "statue",
+    "luxury"
+  ],
+  "subject": "the person",
+  "endFrame": "Convert {subject} into a solid statue cast in polished 24-karat gold: skin, hair and clothing all become mirror-smooth reflective gold metal with warm specular highlights and subtle hammered texture. Keep the exact same pose, framing, camera angle, background and lighting; keep {subject}'s face shape and proportions recognisable.",
+  "motion": "{subject} stands still as a bead of molten gold appears at their fingertips. Liquid gold spreads up the arms and across the clothing in glossy rippling waves, hardening as it goes, climbing the neck and washing over the face and hair until {subject} is a gleaming motionless gold statue. Warm light glints across the new metal surface. The camera holds steady with a very slow push-in.",
+  "sound": "a rising shimmering metallic hum, soft liquid pouring, and a final bright resonant chime",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

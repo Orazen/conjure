@@ -1,0 +1,22 @@
+{
+  "id": "portal-out",
+  "name": "Portal Out",
+  "tagline": "A glowing portal tears open and you step through.",
+  "icon": "🌀",
+  "colors": [
+    "#c77dff",
+    "#10002b"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "portal",
+    "sci-fi",
+    "exit"
+  ],
+  "subject": "the person",
+  "motion": "A swirling ring of violet light tears open in the air beside {subject}, crackling with energy and casting purple light across the scene. {subject} glances at the camera, then steps into the portal and vanishes as it snaps shut with a flash, leaving drifting sparks. Steady camera.",
+  "sound": "a humming energy vortex, electric crackles, and a sharp collapsing whoomp",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

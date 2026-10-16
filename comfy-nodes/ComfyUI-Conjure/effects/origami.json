@@ -1,0 +1,23 @@
+{
+  "id": "origami",
+  "name": "Origami",
+  "tagline": "Fold into a crisp paper origami sculpture.",
+  "icon": "📄",
+  "colors": [
+    "#fff7e6",
+    "#c97b3a"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "paper",
+    "craft",
+    "fold"
+  ],
+  "subject": "the person",
+  "endFrame": "Turn {subject} into an intricate origami paper sculpture: crisp folded paper facets in the colours of their clothing and hair, sharp creases, visible paper texture, soft studio shadows. Same pose and background.",
+  "motion": "Sharp crease lines appear across {subject} like a folding pattern. Their body folds along the lines in quick precise paper folds, flattening into crisp faceted planes until {subject} is a delicate origami sculpture that settles with a tiny bounce. Steady camera, soft daylight.",
+  "sound": "rapid paper folding, crisp crinkles, and a soft paper flutter",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

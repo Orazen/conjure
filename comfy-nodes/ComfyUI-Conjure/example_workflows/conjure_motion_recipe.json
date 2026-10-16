@@ -1,0 +1,2688 @@
+{
+ "id": "7a32e635-ab95-4984-85f1-2d23596d2485",
+ "revision": 0,
+ "last_node_id": 0,
+ "last_link_id": 51,
+ "nodes": [
+  {
+   "id": "recipe",
+   "type": "ConjureEffectRecipe",
+   "pos": [
+    0,
+    0
+   ],
+   "size": [
+    400,
+    284
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "effect",
+     "name": "effect",
+     "type": "COMBO",
+     "widget": {
+      "name": "effect"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "subject",
+     "name": "subject",
+     "type": "STRING",
+     "widget": {
+      "name": "subject"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "seconds",
+     "name": "seconds",
+     "type": "INT",
+     "widget": {
+      "name": "seconds"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "fps",
+     "name": "fps",
+     "type": "INT",
+     "widget": {
+      "name": "fps"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "recipe_json",
+     "name": "recipe_json",
+     "shape": 7,
+     "type": "STRING",
+     "widget": {
+      "name": "recipe_json"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "motion_prompt",
+     "name": "motion_prompt",
+     "type": "STRING",
+     "links": [
+      1
+     ]
+    },
+    {
+     "localized_name": "end_frame_prompt",
+     "name": "end_frame_prompt",
+     "type": "STRING",
+     "links": null
+    },
+    {
+     "localized_name": "negative_prompt",
+     "name": "negative_prompt",
+     "type": "STRING",
+     "links": [
+      3
+     ]
+    },
+    {
+     "localized_name": "frames",
+     "name": "frames",
+     "type": "INT",
+     "links": [
+      10,
+      14
+     ]
+    },
+    {
+     "localized_name": "fps",
+     "name": "fps",
+     "type": "FLOAT",
+     "links": [
+      5,
+      48
+     ]
+    },
+    {
+     "localized_name": "pipeline",
+     "name": "pipeline",
+     "type": "STRING",
+     "links": null
+    }
+   ],
+   "title": "Conjure Effect Recipe \u2726 (pick any motion effect)",
+   "properties": {
+    "Node name for S&R": "ConjureEffectRecipe"
+   },
+   "widgets_values": [
+    "dust-to-dust",
+    "",
+    0,
+    24,
+    ""
+   ],
+   "widgets_values_named": {
+    "effect": "dust-to-dust",
+    "subject": "",
+    "seconds": 0,
+    "fps": 24,
+    "recipe_json": ""
+   }
+  },
+  {
+   "id": "load_image",
+   "type": "LoadImage",
+   "pos": [
+    0,
+    354
+   ],
+   "size": [
+    282.798828125,
+    314
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "image",
+     "name": "image",
+     "type": "COMBO",
+     "widget": {
+      "name": "image"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "choose file to upload",
+     "name": "upload",
+     "type": "IMAGEUPLOAD",
+     "widget": {
+      "name": "upload"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "IMAGE",
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      8
+     ]
+    },
+    {
+     "localized_name": "MASK",
+     "name": "MASK",
+     "type": "MASK",
+     "links": null
+    }
+   ],
+   "title": "Conjure: input photo",
+   "properties": {
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "conjure_input.png",
+    "image"
+   ],
+   "widgets_values_named": {
+    "image": "conjure_input.png",
+    "upload": "image"
+   }
+  },
+  {
+   "id": "ltx_model",
+   "type": "UNETLoader",
+   "pos": [
+    540,
+    0
+   ],
+   "size": [
+    270,
+    82
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "unet_name",
+     "name": "unet_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "unet_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "weight_dtype",
+     "name": "weight_dtype",
+     "type": "COMBO",
+     "widget": {
+      "name": "weight_dtype"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "MODEL",
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      18,
+      35
+     ]
+    }
+   ],
+   "title": "LTX-2.5 22B distilled (int8)",
+   "properties": {
+    "Node name for S&R": "UNETLoader",
+    "models": [
+     {
+      "name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "directory": "diffusion_models"
+     }
+    ]
+   },
+   "widgets_values": [
+    "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+    "default"
+   ],
+   "widgets_values_named": {
+    "unet_name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+    "weight_dtype": "default"
+   }
+  },
+  {
+   "id": "ltx_text_encoder",
+   "type": "CLIPLoader",
+   "pos": [
+    540,
+    152
+   ],
+   "size": [
+    270,
+    106
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip_name",
+     "name": "clip_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "clip_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "type",
+     "name": "type",
+     "type": "COMBO",
+     "widget": {
+      "name": "type"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "device",
+     "name": "device",
+     "shape": 7,
+     "type": "COMBO",
+     "widget": {
+      "name": "device"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CLIP",
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      2,
+      4
+     ]
+    }
+   ],
+   "title": "LTX-2.5 text encoder (Gemma 4)",
+   "properties": {
+    "Node name for S&R": "CLIPLoader",
+    "models": [
+     {
+      "name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "directory": "text_encoders"
+     }
+    ]
+   },
+   "widgets_values": [
+    "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+    "ltxv",
+    "default"
+   ],
+   "widgets_values_named": {
+    "clip_name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+    "type": "ltxv",
+    "device": "default"
+   }
+  },
+  {
+   "id": "ltx_vae",
+   "type": "VAELoader",
+   "pos": [
+    540,
+    328
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "vae_name",
+     "name": "vae_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "vae_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "VAE",
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      11,
+      29,
+      30,
+      45
+     ]
+    }
+   ],
+   "title": "LTX-2.5 video VAE",
+   "properties": {
+    "Node name for S&R": "VAELoader",
+    "models": [
+     {
+      "name": "ltx-2.5-video-vae-bf16.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "directory": "vae"
+     }
+    ]
+   },
+   "widgets_values": [
+    "ltx-2.5-video-vae-bf16.safetensors"
+   ],
+   "widgets_values_named": {
+    "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+   }
+  },
+  {
+   "id": "ltx_audio_vae",
+   "type": "VAELoader",
+   "pos": [
+    540,
+    456
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "vae_name",
+     "name": "vae_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "vae_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "VAE",
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      15,
+      47
+     ]
+    }
+   ],
+   "title": "LTX-2.5 audio VAE",
+   "properties": {
+    "Node name for S&R": "VAELoader",
+    "models": [
+     {
+      "name": "ltx-2.5-audio-vae-bf16.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "directory": "vae"
+     }
+    ]
+   },
+   "widgets_values": [
+    "ltx-2.5-audio-vae-bf16.safetensors"
+   ],
+   "widgets_values_named": {
+    "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+   }
+  },
+  {
+   "id": "ltx_upscaler",
+   "type": "LatentUpscaleModelLoader",
+   "pos": [
+    540,
+    584
+   ],
+   "size": [
+    280.9224609375,
+    58
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model_name",
+     "name": "model_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "model_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT_UPSCALE_MODEL",
+     "name": "LATENT_UPSCALE_MODEL",
+     "type": "LATENT_UPSCALE_MODEL",
+     "links": [
+      28
+     ]
+    }
+   ],
+   "title": "LTX-2.5 spatial upscaler x2",
+   "properties": {
+    "Node name for S&R": "LatentUpscaleModelLoader",
+    "models": [
+     {
+      "name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "directory": "latent_upscale_models"
+     }
+    ]
+   },
+   "widgets_values": [
+    "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+   ],
+   "widgets_values_named": {
+    "model_name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+   }
+  },
+  {
+   "id": "prompt",
+   "type": "CLIPTextEncode",
+   "pos": [
+    890.9224609375,
+    0
+   ],
+   "size": [
+    400,
+    200
+   ],
+   "flags": {},
+   "order": 15,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 2
+    },
+    {
+     "localized_name": "text",
+     "name": "text",
+     "type": "STRING",
+     "widget": {
+      "name": "text"
+     },
+     "link": 1
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      6
+     ]
+    }
+   ],
+   "title": "Conjure: motion prompt",
+   "properties": {
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    ""
+   ],
+   "widgets_values_named": {
+    "text": ""
+   }
+  },
+  {
+   "id": "negative",
+   "type": "CLIPTextEncode",
+   "pos": [
+    890.9224609375,
+    270
+   ],
+   "size": [
+    400,
+    200
+   ],
+   "flags": {},
+   "order": 16,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 4
+    },
+    {
+     "localized_name": "text",
+     "name": "text",
+     "type": "STRING",
+     "widget": {
+      "name": "text"
+     },
+     "link": 3
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      7
+     ]
+    }
+   ],
+   "title": "Conjure: negative prompt",
+   "properties": {
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    ""
+   ],
+   "widgets_values_named": {
+    "text": ""
+   }
+  },
+  {
+   "id": "conditioning",
+   "type": "LTXVConditioning",
+   "pos": [
+    890.9224609375,
+    540
+   ],
+   "size": [
+    270,
+    78
+   ],
+   "flags": {},
+   "order": 19,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 6
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 7
+    },
+    {
+     "localized_name": "frame_rate",
+     "name": "frame_rate",
+     "type": "FLOAT",
+     "widget": {
+      "name": "frame_rate"
+     },
+     "link": 5
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "links": [
+      19,
+      36
+     ]
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "links": [
+      20,
+      37
+     ]
+    }
+   ],
+   "title": "LTXV conditioning (fps)",
+   "properties": {
+    "Node name for S&R": "LTXVConditioning"
+   },
+   "widgets_values": [
+    25
+   ],
+   "widgets_values_named": {
+    "frame_rate": 25
+   }
+  },
+  {
+   "id": "resize_image",
+   "type": "ResizeImageMaskNode",
+   "pos": [
+    0,
+    738
+   ],
+   "size": [
+    270,
+    154
+   ],
+   "flags": {},
+   "order": 14,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "input",
+     "name": "input",
+     "type": "IMAGE,MASK",
+     "link": 8
+    },
+    {
+     "localized_name": "resize_type",
+     "name": "resize_type",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "resize_type"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "width",
+     "name": "resize_type.width",
+     "type": "INT",
+     "widget": {
+      "name": "resize_type.width"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "height",
+     "name": "resize_type.height",
+     "type": "INT",
+     "widget": {
+      "name": "resize_type.height"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "crop",
+     "name": "resize_type.crop",
+     "type": "COMBO",
+     "widget": {
+      "name": "resize_type.crop"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "scale_method",
+     "name": "scale_method",
+     "type": "COMBO",
+     "widget": {
+      "name": "scale_method"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "resized",
+     "name": "resized",
+     "type": "IMAGE",
+     "links": [
+      9
+     ]
+    }
+   ],
+   "title": "Fit photo to output size",
+   "properties": {
+    "Node name for S&R": "ResizeImageMaskNode"
+   },
+   "widgets_values": [
+    "scale dimensions",
+    704,
+    1280,
+    "center",
+    "lanczos"
+   ],
+   "widgets_values_named": {
+    "resize_type": "scale dimensions",
+    "resize_type.width": 704,
+    "resize_type.height": 1280,
+    "resize_type.crop": "center",
+    "scale_method": "lanczos"
+   }
+  },
+  {
+   "id": "preprocess_image",
+   "type": "LTXVPreprocess",
+   "pos": [
+    890.9224609375,
+    688
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 18,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "image",
+     "name": "image",
+     "type": "IMAGE",
+     "link": 9
+    },
+    {
+     "localized_name": "img_compression",
+     "name": "img_compression",
+     "type": "INT",
+     "widget": {
+      "name": "img_compression"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "output_image",
+     "name": "output_image",
+     "type": "IMAGE",
+     "links": [
+      12,
+      31
+     ]
+    }
+   ],
+   "title": "LTXV preprocess",
+   "properties": {
+    "Node name for S&R": "LTXVPreprocess"
+   },
+   "widgets_values": [
+    18
+   ],
+   "widgets_values_named": {
+    "img_compression": 18
+   }
+  },
+  {
+   "id": "empty_video",
+   "type": "EmptyLTXVLatentVideo",
+   "pos": [
+    1360.9224609375,
+    0
+   ],
+   "size": [
+    270,
+    130
+   ],
+   "flags": {},
+   "order": 13,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "width",
+     "name": "width",
+     "type": "INT",
+     "widget": {
+      "name": "width"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "height",
+     "name": "height",
+     "type": "INT",
+     "widget": {
+      "name": "height"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "length",
+     "name": "length",
+     "type": "INT",
+     "widget": {
+      "name": "length"
+     },
+     "link": 10
+    },
+    {
+     "localized_name": "batch_size",
+     "name": "batch_size",
+     "type": "INT",
+     "widget": {
+      "name": "batch_size"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      13
+     ]
+    }
+   ],
+   "title": "Stage 1 latent (half res)",
+   "properties": {
+    "Node name for S&R": "EmptyLTXVLatentVideo"
+   },
+   "widgets_values": [
+    352,
+    640,
+    97,
+    1
+   ],
+   "widgets_values_named": {
+    "width": 352,
+    "height": 640,
+    "length": 97,
+    "batch_size": 1
+   }
+  },
+  {
+   "id": "first_frame_1",
+   "type": "LTXVImgToVideoInplace",
+   "pos": [
+    1360.9224609375,
+    200
+   ],
+   "size": [
+    270,
+    122
+   ],
+   "flags": {},
+   "order": 20,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 11
+    },
+    {
+     "localized_name": "image",
+     "name": "image",
+     "type": "IMAGE",
+     "link": 12
+    },
+    {
+     "localized_name": "latent",
+     "name": "latent",
+     "type": "LATENT",
+     "link": 13
+    },
+    {
+     "localized_name": "strength",
+     "name": "strength",
+     "type": "FLOAT",
+     "widget": {
+      "name": "strength"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "bypass",
+     "name": "bypass",
+     "type": "BOOLEAN",
+     "widget": {
+      "name": "bypass"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "latent",
+     "name": "latent",
+     "type": "LATENT",
+     "links": [
+      16
+     ]
+    }
+   ],
+   "title": "Stage 1 first frame",
+   "properties": {
+    "Node name for S&R": "LTXVImgToVideoInplace"
+   },
+   "widgets_values": [
+    0.7,
+    false
+   ],
+   "widgets_values_named": {
+    "strength": 0.7,
+    "bypass": false
+   }
+  },
+  {
+   "id": "empty_audio",
+   "type": "LTXVEmptyLatentAudio",
+   "pos": [
+    1360.9224609375,
+    392
+   ],
+   "size": [
+    270,
+    106
+   ],
+   "flags": {},
+   "order": 17,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "Audio VAE",
+     "name": "audio_vae",
+     "type": "VAE",
+     "link": 15
+    },
+    {
+     "localized_name": "frames_number",
+     "name": "frames_number",
+     "type": "INT",
+     "widget": {
+      "name": "frames_number"
+     },
+     "link": 14
+    },
+    {
+     "localized_name": "frame_rate",
+     "name": "frame_rate",
+     "type": "FLOAT,INT",
+     "widget": {
+      "name": "frame_rate"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "batch_size",
+     "name": "batch_size",
+     "type": "INT",
+     "widget": {
+      "name": "batch_size"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "Latent",
+     "name": "Latent",
+     "type": "LATENT",
+     "links": [
+      17
+     ]
+    }
+   ],
+   "title": "Audio latent",
+   "properties": {
+    "Node name for S&R": "LTXVEmptyLatentAudio"
+   },
+   "widgets_values": [
+    97,
+    24,
+    1
+   ],
+   "widgets_values_named": {
+    "frames_number": 97,
+    "frame_rate": 24,
+    "batch_size": 1
+   }
+  },
+  {
+   "id": "av_latent_1",
+   "type": "LTXVConcatAVLatent",
+   "pos": [
+    1360.9224609375,
+    568
+   ],
+   "size": [
+    154.839453125,
+    46
+   ],
+   "flags": {},
+   "order": 23,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "video_latent",
+     "name": "video_latent",
+     "type": "LATENT",
+     "link": 16
+    },
+    {
+     "localized_name": "audio_latent",
+     "name": "audio_latent",
+     "type": "LATENT",
+     "link": 17
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "latent",
+     "name": "latent",
+     "type": "LATENT",
+     "links": [
+      25
+     ]
+    }
+   ],
+   "title": "Stage 1 AV latent",
+   "properties": {
+    "Node name for S&R": "LTXVConcatAVLatent"
+   }
+  },
+  {
+   "id": "noise_1",
+   "type": "RandomNoise",
+   "pos": [
+    1700.9224609375,
+    0
+   ],
+   "size": [
+    270,
+    82
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "noise_seed",
+     "name": "noise_seed",
+     "type": "INT",
+     "widget": {
+      "name": "noise_seed"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "NOISE",
+     "name": "NOISE",
+     "type": "NOISE",
+     "links": [
+      21
+     ]
+    }
+   ],
+   "title": "Conjure: seed",
+   "properties": {
+    "Node name for S&R": "RandomNoise"
+   },
+   "widgets_values": [
+    42,
+    "randomize"
+   ],
+   "widgets_values_named": {
+    "noise_seed": 42,
+    "control_after_generate": "randomize"
+   }
+  },
+  {
+   "id": "guider_1",
+   "type": "LTXVDualCFGGuider",
+   "pos": [
+    1700.9224609375,
+    152
+   ],
+   "size": [
+    270,
+    122
+   ],
+   "flags": {},
+   "order": 21,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model",
+     "name": "model",
+     "type": "MODEL",
+     "link": 18
+    },
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 19
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 20
+    },
+    {
+     "localized_name": "video_cfg",
+     "name": "video_cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "video_cfg"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audio_cfg",
+     "name": "audio_cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "audio_cfg"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "GUIDER",
+     "name": "GUIDER",
+     "type": "GUIDER",
+     "links": [
+      22
+     ]
+    }
+   ],
+   "title": "Stage 1 guider",
+   "properties": {
+    "Node name for S&R": "LTXVDualCFGGuider"
+   },
+   "widgets_values": [
+    1,
+    1
+   ],
+   "widgets_values_named": {
+    "video_cfg": 1,
+    "audio_cfg": 1
+   }
+  },
+  {
+   "id": "sampler_1",
+   "type": "KSamplerSelect",
+   "pos": [
+    1700.9224609375,
+    344
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "sampler_name",
+     "name": "sampler_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "sampler_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "SAMPLER",
+     "name": "SAMPLER",
+     "type": "SAMPLER",
+     "links": [
+      23
+     ]
+    }
+   ],
+   "title": "Stage 1 sampler",
+   "properties": {
+    "Node name for S&R": "KSamplerSelect"
+   },
+   "widgets_values": [
+    "euler_ancestral"
+   ],
+   "widgets_values_named": {
+    "sampler_name": "euler_ancestral"
+   }
+  },
+  {
+   "id": "sigmas_1",
+   "type": "ManualSigmas",
+   "pos": [
+    1700.9224609375,
+    472
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 9,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "sigmas",
+     "name": "sigmas",
+     "type": "STRING",
+     "widget": {
+      "name": "sigmas"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "SIGMAS",
+     "name": "SIGMAS",
+     "type": "SIGMAS",
+     "links": [
+      24
+     ]
+    }
+   ],
+   "title": "Stage 1 sigmas (8 steps)",
+   "properties": {
+    "Node name for S&R": "ManualSigmas"
+   },
+   "widgets_values": [
+    "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+   ],
+   "widgets_values_named": {
+    "sigmas": "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+   }
+  },
+  {
+   "id": "sample_1",
+   "type": "SamplerCustomAdvanced",
+   "pos": [
+    1700.9224609375,
+    600
+   ],
+   "size": [
+    212.3638671875,
+    106
+   ],
+   "flags": {},
+   "order": 24,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "noise",
+     "name": "noise",
+     "type": "NOISE",
+     "link": 21
+    },
+    {
+     "localized_name": "guider",
+     "name": "guider",
+     "type": "GUIDER",
+     "link": 22
+    },
+    {
+     "localized_name": "sampler",
+     "name": "sampler",
+     "type": "SAMPLER",
+     "link": 23
+    },
+    {
+     "localized_name": "sigmas",
+     "name": "sigmas",
+     "type": "SIGMAS",
+     "link": 24
+    },
+    {
+     "localized_name": "latent_image",
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 25
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "output",
+     "name": "output",
+     "type": "LATENT",
+     "links": [
+      26
+     ]
+    },
+    {
+     "localized_name": "denoised_output",
+     "name": "denoised_output",
+     "type": "LATENT",
+     "links": null
+    }
+   ],
+   "title": "Stage 1 sample",
+   "properties": {
+    "Node name for S&R": "SamplerCustomAdvanced"
+   }
+  },
+  {
+   "id": "split_1",
+   "type": "LTXVSeparateAVLatent",
+   "pos": [
+    1700.9224609375,
+    776
+   ],
+   "size": [
+    166.8228515625,
+    46
+   ],
+   "flags": {},
+   "order": 25,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "av_latent",
+     "name": "av_latent",
+     "type": "LATENT",
+     "link": 26
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "video_latent",
+     "name": "video_latent",
+     "type": "LATENT",
+     "links": [
+      27
+     ]
+    },
+    {
+     "localized_name": "audio_latent",
+     "name": "audio_latent",
+     "type": "LATENT",
+     "links": [
+      34
+     ]
+    }
+   ],
+   "title": "Stage 1 split AV",
+   "properties": {
+    "Node name for S&R": "LTXVSeparateAVLatent"
+   }
+  },
+  {
+   "id": "upsample",
+   "type": "LTXVLatentUpsampler",
+   "pos": [
+    2040.9224609375,
+    0
+   ],
+   "size": [
+    187.8501953125,
+    66
+   ],
+   "flags": {},
+   "order": 26,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "samples",
+     "name": "samples",
+     "type": "LATENT",
+     "link": 27
+    },
+    {
+     "localized_name": "upscale_model",
+     "name": "upscale_model",
+     "type": "LATENT_UPSCALE_MODEL",
+     "link": 28
+    },
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 29
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      32
+     ]
+    }
+   ],
+   "title": "Latent upsample x2",
+   "properties": {
+    "Node name for S&R": "LTXVLatentUpsampler"
+   }
+  },
+  {
+   "id": "first_frame_2",
+   "type": "LTXVImgToVideoInplace",
+   "pos": [
+    2040.9224609375,
+    136
+   ],
+   "size": [
+    270,
+    122
+   ],
+   "flags": {},
+   "order": 27,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 30
+    },
+    {
+     "localized_name": "image",
+     "name": "image",
+     "type": "IMAGE",
+     "link": 31
+    },
+    {
+     "localized_name": "latent",
+     "name": "latent",
+     "type": "LATENT",
+     "link": 32
+    },
+    {
+     "localized_name": "strength",
+     "name": "strength",
+     "type": "FLOAT",
+     "widget": {
+      "name": "strength"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "bypass",
+     "name": "bypass",
+     "type": "BOOLEAN",
+     "widget": {
+      "name": "bypass"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "latent",
+     "name": "latent",
+     "type": "LATENT",
+     "links": [
+      33
+     ]
+    }
+   ],
+   "title": "Stage 2 first frame",
+   "properties": {
+    "Node name for S&R": "LTXVImgToVideoInplace"
+   },
+   "widgets_values": [
+    1,
+    false
+   ],
+   "widgets_values_named": {
+    "strength": 1,
+    "bypass": false
+   }
+  },
+  {
+   "id": "av_latent_2",
+   "type": "LTXVConcatAVLatent",
+   "pos": [
+    2040.9224609375,
+    328
+   ],
+   "size": [
+    154.839453125,
+    46
+   ],
+   "flags": {},
+   "order": 28,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "video_latent",
+     "name": "video_latent",
+     "type": "LATENT",
+     "link": 33
+    },
+    {
+     "localized_name": "audio_latent",
+     "name": "audio_latent",
+     "type": "LATENT",
+     "link": 34
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "latent",
+     "name": "latent",
+     "type": "LATENT",
+     "links": [
+      42
+     ]
+    }
+   ],
+   "title": "Stage 2 AV latent",
+   "properties": {
+    "Node name for S&R": "LTXVConcatAVLatent"
+   }
+  },
+  {
+   "id": "noise_2",
+   "type": "RandomNoise",
+   "pos": [
+    2380.9224609375,
+    0
+   ],
+   "size": [
+    270,
+    82
+   ],
+   "flags": {},
+   "order": 10,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "noise_seed",
+     "name": "noise_seed",
+     "type": "INT",
+     "widget": {
+      "name": "noise_seed"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "NOISE",
+     "name": "NOISE",
+     "type": "NOISE",
+     "links": [
+      38
+     ]
+    }
+   ],
+   "title": "Stage 2 noise",
+   "properties": {
+    "Node name for S&R": "RandomNoise"
+   },
+   "widgets_values": [
+    42,
+    "randomize"
+   ],
+   "widgets_values_named": {
+    "noise_seed": 42,
+    "control_after_generate": "randomize"
+   }
+  },
+  {
+   "id": "guider_2",
+   "type": "LTXVDualCFGGuider",
+   "pos": [
+    2380.9224609375,
+    152
+   ],
+   "size": [
+    270,
+    122
+   ],
+   "flags": {},
+   "order": 22,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model",
+     "name": "model",
+     "type": "MODEL",
+     "link": 35
+    },
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 36
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 37
+    },
+    {
+     "localized_name": "video_cfg",
+     "name": "video_cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "video_cfg"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audio_cfg",
+     "name": "audio_cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "audio_cfg"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "GUIDER",
+     "name": "GUIDER",
+     "type": "GUIDER",
+     "links": [
+      39
+     ]
+    }
+   ],
+   "title": "Stage 2 guider",
+   "properties": {
+    "Node name for S&R": "LTXVDualCFGGuider"
+   },
+   "widgets_values": [
+    1,
+    1
+   ],
+   "widgets_values_named": {
+    "video_cfg": 1,
+    "audio_cfg": 1
+   }
+  },
+  {
+   "id": "sampler_2",
+   "type": "KSamplerSelect",
+   "pos": [
+    2380.9224609375,
+    344
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 11,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "sampler_name",
+     "name": "sampler_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "sampler_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "SAMPLER",
+     "name": "SAMPLER",
+     "type": "SAMPLER",
+     "links": [
+      40
+     ]
+    }
+   ],
+   "title": "Stage 2 sampler",
+   "properties": {
+    "Node name for S&R": "KSamplerSelect"
+   },
+   "widgets_values": [
+    "euler_ancestral"
+   ],
+   "widgets_values_named": {
+    "sampler_name": "euler_ancestral"
+   }
+  },
+  {
+   "id": "sigmas_2",
+   "type": "ManualSigmas",
+   "pos": [
+    2380.9224609375,
+    472
+   ],
+   "size": [
+    270,
+    58
+   ],
+   "flags": {},
+   "order": 12,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "sigmas",
+     "name": "sigmas",
+     "type": "STRING",
+     "widget": {
+      "name": "sigmas"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "SIGMAS",
+     "name": "SIGMAS",
+     "type": "SIGMAS",
+     "links": [
+      41
+     ]
+    }
+   ],
+   "title": "Stage 2 sigmas (refine)",
+   "properties": {
+    "Node name for S&R": "ManualSigmas"
+   },
+   "widgets_values": [
+    "0.85, 0.7250, 0.4219, 0.0"
+   ],
+   "widgets_values_named": {
+    "sigmas": "0.85, 0.7250, 0.4219, 0.0"
+   }
+  },
+  {
+   "id": "sample_2",
+   "type": "SamplerCustomAdvanced",
+   "pos": [
+    2380.9224609375,
+    600
+   ],
+   "size": [
+    212.3638671875,
+    106
+   ],
+   "flags": {},
+   "order": 29,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "noise",
+     "name": "noise",
+     "type": "NOISE",
+     "link": 38
+    },
+    {
+     "localized_name": "guider",
+     "name": "guider",
+     "type": "GUIDER",
+     "link": 39
+    },
+    {
+     "localized_name": "sampler",
+     "name": "sampler",
+     "type": "SAMPLER",
+     "link": 40
+    },
+    {
+     "localized_name": "sigmas",
+     "name": "sigmas",
+     "type": "SIGMAS",
+     "link": 41
+    },
+    {
+     "localized_name": "latent_image",
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 42
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "output",
+     "name": "output",
+     "type": "LATENT",
+     "links": [
+      43
+     ]
+    },
+    {
+     "localized_name": "denoised_output",
+     "name": "denoised_output",
+     "type": "LATENT",
+     "links": null
+    }
+   ],
+   "title": "Stage 2 sample",
+   "properties": {
+    "Node name for S&R": "SamplerCustomAdvanced"
+   }
+  },
+  {
+   "id": "split_2",
+   "type": "LTXVSeparateAVLatent",
+   "pos": [
+    2380.9224609375,
+    776
+   ],
+   "size": [
+    166.8228515625,
+    46
+   ],
+   "flags": {},
+   "order": 30,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "av_latent",
+     "name": "av_latent",
+     "type": "LATENT",
+     "link": 43
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "video_latent",
+     "name": "video_latent",
+     "type": "LATENT",
+     "links": [
+      44
+     ]
+    },
+    {
+     "localized_name": "audio_latent",
+     "name": "audio_latent",
+     "type": "LATENT",
+     "links": [
+      46
+     ]
+    }
+   ],
+   "title": "Stage 2 split AV",
+   "properties": {
+    "Node name for S&R": "LTXVSeparateAVLatent"
+   }
+  },
+  {
+   "id": "decode_video",
+   "type": "VAEDecodeTiled",
+   "pos": [
+    2790.9224609375,
+    0
+   ],
+   "size": [
+    270,
+    150
+   ],
+   "flags": {},
+   "order": 31,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "samples",
+     "name": "samples",
+     "type": "LATENT",
+     "link": 44
+    },
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 45
+    },
+    {
+     "localized_name": "tile_size",
+     "name": "tile_size",
+     "type": "INT",
+     "widget": {
+      "name": "tile_size"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "overlap",
+     "name": "overlap",
+     "type": "INT",
+     "widget": {
+      "name": "overlap"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "temporal_size",
+     "name": "temporal_size",
+     "type": "INT",
+     "widget": {
+      "name": "temporal_size"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "temporal_overlap",
+     "name": "temporal_overlap",
+     "type": "INT",
+     "widget": {
+      "name": "temporal_overlap"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "IMAGE",
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      49
+     ]
+    }
+   ],
+   "title": "Decode video",
+   "properties": {
+    "Node name for S&R": "VAEDecodeTiled"
+   },
+   "widgets_values": [
+    512,
+    64,
+    64,
+    16
+   ],
+   "widgets_values_named": {
+    "tile_size": 512,
+    "overlap": 64,
+    "temporal_size": 64,
+    "temporal_overlap": 16
+   }
+  },
+  {
+   "id": "decode_audio",
+   "type": "LTXVAudioVAEDecode",
+   "pos": [
+    2790.9224609375,
+    220
+   ],
+   "size": [
+    202.991796875,
+    46
+   ],
+   "flags": {},
+   "order": 32,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "samples",
+     "name": "samples",
+     "type": "LATENT",
+     "link": 46
+    },
+    {
+     "localized_name": "Audio VAE",
+     "name": "audio_vae",
+     "type": "VAE",
+     "link": 47
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "Audio",
+     "name": "Audio",
+     "type": "AUDIO",
+     "links": [
+      50
+     ]
+    }
+   ],
+   "title": "Decode audio",
+   "properties": {
+    "Node name for S&R": "LTXVAudioVAEDecode"
+   }
+  },
+  {
+   "id": "create_video",
+   "type": "CreateVideo",
+   "pos": [
+    2790.9224609375,
+    336
+   ],
+   "size": [
+    270,
+    150
+   ],
+   "flags": {},
+   "order": 33,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "images",
+     "name": "images",
+     "type": "IMAGE",
+     "link": 49
+    },
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "shape": 7,
+     "type": "AUDIO",
+     "link": 50
+    },
+    {
+     "localized_name": "fps",
+     "name": "fps",
+     "type": "FLOAT",
+     "widget": {
+      "name": "fps"
+     },
+     "link": 48
+    },
+    {
+     "localized_name": "bit_depth",
+     "name": "bit_depth",
+     "shape": 7,
+     "type": "COMBO",
+     "widget": {
+      "name": "bit_depth"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "color_space",
+     "name": "color_space",
+     "shape": 7,
+     "type": "COMBO",
+     "widget": {
+      "name": "color_space"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "codec",
+     "name": "codec",
+     "shape": 7,
+     "type": "COMBO",
+     "widget": {
+      "name": "codec"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "VIDEO",
+     "name": "VIDEO",
+     "type": "VIDEO",
+     "links": [
+      51
+     ]
+    }
+   ],
+   "title": "Create video",
+   "properties": {
+    "Node name for S&R": "CreateVideo"
+   },
+   "widgets_values": [
+    30,
+    8,
+    "sRGB",
+    "none"
+   ],
+   "widgets_values_named": {
+    "fps": 30,
+    "bit_depth": 8,
+    "color_space": "sRGB",
+    "codec": "none"
+   }
+  },
+  {
+   "id": "save_video",
+   "type": "SaveVideo",
+   "pos": [
+    2790.9224609375,
+    556
+   ],
+   "size": [
+    270,
+    106
+   ],
+   "flags": {},
+   "order": 34,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "video",
+     "name": "video",
+     "type": "VIDEO",
+     "link": 51
+    },
+    {
+     "localized_name": "filename_prefix",
+     "name": "filename_prefix",
+     "type": "STRING",
+     "widget": {
+      "name": "filename_prefix"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "format",
+     "name": "format",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "format"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "codec",
+     "name": "format.codec",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "format.codec"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "codec",
+     "name": "codec",
+     "shape": 7,
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "widget": {
+      "name": "codec"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "video",
+     "name": "video",
+     "type": "VIDEO",
+     "links": null
+    }
+   ],
+   "title": "Conjure: save video",
+   "properties": {},
+   "widgets_values": [
+    "conjure/dust-to-dust",
+    "auto",
+    "auto",
+    "auto"
+   ],
+   "widgets_values_named": {
+    "filename_prefix": "conjure/dust-to-dust",
+    "format": "auto",
+    "format.codec": "auto",
+    "codec": "auto"
+   }
+  }
+ ],
+ "links": [
+  [
+   1,
+   "recipe",
+   0,
+   "prompt",
+   1,
+   "STRING"
+  ],
+  [
+   2,
+   "ltx_text_encoder",
+   0,
+   "prompt",
+   0,
+   "CLIP"
+  ],
+  [
+   3,
+   "recipe",
+   2,
+   "negative",
+   1,
+   "STRING"
+  ],
+  [
+   4,
+   "ltx_text_encoder",
+   0,
+   "negative",
+   0,
+   "CLIP"
+  ],
+  [
+   5,
+   "recipe",
+   4,
+   "conditioning",
+   2,
+   "FLOAT"
+  ],
+  [
+   6,
+   "prompt",
+   0,
+   "conditioning",
+   0,
+   "CONDITIONING"
+  ],
+  [
+   7,
+   "negative",
+   0,
+   "conditioning",
+   1,
+   "CONDITIONING"
+  ],
+  [
+   8,
+   "load_image",
+   0,
+   "resize_image",
+   0,
+   "IMAGE"
+  ],
+  [
+   9,
+   "resize_image",
+   0,
+   "preprocess_image",
+   0,
+   "IMAGE"
+  ],
+  [
+   10,
+   "recipe",
+   3,
+   "empty_video",
+   2,
+   "INT"
+  ],
+  [
+   11,
+   "ltx_vae",
+   0,
+   "first_frame_1",
+   0,
+   "VAE"
+  ],
+  [
+   12,
+   "preprocess_image",
+   0,
+   "first_frame_1",
+   1,
+   "IMAGE"
+  ],
+  [
+   13,
+   "empty_video",
+   0,
+   "first_frame_1",
+   2,
+   "LATENT"
+  ],
+  [
+   14,
+   "recipe",
+   3,
+   "empty_audio",
+   1,
+   "INT"
+  ],
+  [
+   15,
+   "ltx_audio_vae",
+   0,
+   "empty_audio",
+   0,
+   "VAE"
+  ],
+  [
+   16,
+   "first_frame_1",
+   0,
+   "av_latent_1",
+   0,
+   "LATENT"
+  ],
+  [
+   17,
+   "empty_audio",
+   0,
+   "av_latent_1",
+   1,
+   "LATENT"
+  ],
+  [
+   18,
+   "ltx_model",
+   0,
+   "guider_1",
+   0,
+   "MODEL"
+  ],
+  [
+   19,
+   "conditioning",
+   0,
+   "guider_1",
+   1,
+   "CONDITIONING"
+  ],
+  [
+   20,
+   "conditioning",
+   1,
+   "guider_1",
+   2,
+   "CONDITIONING"
+  ],
+  [
+   21,
+   "noise_1",
+   0,
+   "sample_1",
+   0,
+   "NOISE"
+  ],
+  [
+   22,
+   "guider_1",
+   0,
+   "sample_1",
+   1,
+   "GUIDER"
+  ],
+  [
+   23,
+   "sampler_1",
+   0,
+   "sample_1",
+   2,
+   "SAMPLER"
+  ],
+  [
+   24,
+   "sigmas_1",
+   0,
+   "sample_1",
+   3,
+   "SIGMAS"
+  ],
+  [
+   25,
+   "av_latent_1",
+   0,
+   "sample_1",
+   4,
+   "LATENT"
+  ],
+  [
+   26,
+   "sample_1",
+   0,
+   "split_1",
+   0,
+   "LATENT"
+  ],
+  [
+   27,
+   "split_1",
+   0,
+   "upsample",
+   0,
+   "LATENT"
+  ],
+  [
+   28,
+   "ltx_upscaler",
+   0,
+   "upsample",
+   1,
+   "LATENT_UPSCALE_MODEL"
+  ],
+  [
+   29,
+   "ltx_vae",
+   0,
+   "upsample",
+   2,
+   "VAE"
+  ],
+  [
+   30,
+   "ltx_vae",
+   0,
+   "first_frame_2",
+   0,
+   "VAE"
+  ],
+  [
+   31,
+   "preprocess_image",
+   0,
+   "first_frame_2",
+   1,
+   "IMAGE"
+  ],
+  [
+   32,
+   "upsample",
+   0,
+   "first_frame_2",
+   2,
+   "LATENT"
+  ],
+  [
+   33,
+   "first_frame_2",
+   0,
+   "av_latent_2",
+   0,
+   "LATENT"
+  ],
+  [
+   34,
+   "split_1",
+   1,
+   "av_latent_2",
+   1,
+   "LATENT"
+  ],
+  [
+   35,
+   "ltx_model",
+   0,
+   "guider_2",
+   0,
+   "MODEL"
+  ],
+  [
+   36,
+   "conditioning",
+   0,
+   "guider_2",
+   1,
+   "CONDITIONING"
+  ],
+  [
+   37,
+   "conditioning",
+   1,
+   "guider_2",
+   2,
+   "CONDITIONING"
+  ],
+  [
+   38,
+   "noise_2",
+   0,
+   "sample_2",
+   0,
+   "NOISE"
+  ],
+  [
+   39,
+   "guider_2",
+   0,
+   "sample_2",
+   1,
+   "GUIDER"
+  ],
+  [
+   40,
+   "sampler_2",
+   0,
+   "sample_2",
+   2,
+   "SAMPLER"
+  ],
+  [
+   41,
+   "sigmas_2",
+   0,
+   "sample_2",
+   3,
+   "SIGMAS"
+  ],
+  [
+   42,
+   "av_latent_2",
+   0,
+   "sample_2",
+   4,
+   "LATENT"
+  ],
+  [
+   43,
+   "sample_2",
+   0,
+   "split_2",
+   0,
+   "LATENT"
+  ],
+  [
+   44,
+   "split_2",
+   0,
+   "decode_video",
+   0,
+   "LATENT"
+  ],
+  [
+   45,
+   "ltx_vae",
+   0,
+   "decode_video",
+   1,
+   "VAE"
+  ],
+  [
+   46,
+   "split_2",
+   1,
+   "decode_audio",
+   0,
+   "LATENT"
+  ],
+  [
+   47,
+   "ltx_audio_vae",
+   0,
+   "decode_audio",
+   1,
+   "VAE"
+  ],
+  [
+   48,
+   "recipe",
+   4,
+   "create_video",
+   2,
+   "FLOAT"
+  ],
+  [
+   49,
+   "decode_video",
+   0,
+   "create_video",
+   0,
+   "IMAGE"
+  ],
+  [
+   50,
+   "decode_audio",
+   0,
+   "create_video",
+   1,
+   "AUDIO"
+  ],
+  [
+   51,
+   "create_video",
+   0,
+   "save_video",
+   0,
+   "VIDEO"
+  ]
+ ],
+ "groups": [
+  {
+   "id": 1,
+   "title": "1 \u00b7 Your photo + Conjure recipe",
+   "bounding": [
+    -30,
+    -70,
+    460,
+    992
+   ],
+   "color": "#3f789e",
+   "flags": {}
+  },
+  {
+   "id": 2,
+   "title": "3 \u00b7 LTX-2.5 animates (video + audio)",
+   "bounding": [
+    510,
+    -70,
+    2170.9224609375,
+    922
+   ],
+   "color": "#b06634",
+   "flags": {}
+  },
+  {
+   "id": 3,
+   "title": "4 \u00b7 Output",
+   "bounding": [
+    2760.9224609375,
+    -70,
+    330,
+    762
+   ],
+   "color": "#3a8a5a",
+   "flags": {}
+  }
+ ],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.36,
+   "offset": [
+    120,
+    260
+   ]
+  }
+ },
+ "version": 0.4
+}

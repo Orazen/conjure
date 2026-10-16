@@ -1,0 +1,22 @@
+{
+  "id": "earth-zoom-out",
+  "name": "Earth Zoom Out",
+  "tagline": "Rocket back from your face to orbit in one shot.",
+  "icon": "🌍",
+  "colors": [
+    "#7dd3fc",
+    "#0c4a6e"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "camera",
+    "zoom",
+    "epic"
+  ],
+  "subject": "the person",
+  "motion": "The camera starts close on {subject}, then rockets straight up and backward in one continuous move: the surroundings shrink, the neighbourhood and city appear, clouds rush past, and the view pulls out to the curve of planet Earth glowing blue against black space. Smooth accelerating aerial pull-back.",
+  "sound": "a building whoosh, rushing wind through clouds, then a deep silent space ambience",
+  "duration": 6,
+  "author": "Conjure",
+  "version": 1
+}

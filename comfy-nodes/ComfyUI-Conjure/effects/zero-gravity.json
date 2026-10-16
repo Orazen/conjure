@@ -1,0 +1,22 @@
+{
+  "id": "zero-gravity",
+  "name": "Zero Gravity",
+  "tagline": "Gravity switches off and everything floats.",
+  "icon": "🪐",
+  "colors": [
+    "#b8c0ff",
+    "#3a0ca3"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "levitate",
+    "float",
+    "surreal"
+  ],
+  "subject": "the person",
+  "motion": "Gravity switches off. {subject}'s hair lifts and fans out, loose objects and dust rise slowly into the air around them, and {subject} drifts gently up off the ground, turning slowly with arms floating outward, a look of calm wonder on their face. The camera tilts up to follow. Dreamy soft light.",
+  "sound": "an airy ambient swell, soft whooshes, and a gentle floating chime",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

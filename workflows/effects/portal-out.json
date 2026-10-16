@@ -1,0 +1,504 @@
+{
+  "load_image": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "conjure_input.png"
+    },
+    "_meta": {
+      "title": "Conjure: input photo"
+    }
+  },
+  "ltx_model": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "LTX-2.5 22B distilled (int8)"
+    }
+  },
+  "ltx_text_encoder": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "type": "ltxv",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "LTX-2.5 text encoder (Gemma 4)"
+    }
+  },
+  "ltx_vae": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ltx-2.5-video-vae-bf16.safetensors"
+    },
+    "_meta": {
+      "title": "LTX-2.5 video VAE"
+    }
+  },
+  "ltx_audio_vae": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ltx-2.5-audio-vae-bf16.safetensors"
+    },
+    "_meta": {
+      "title": "LTX-2.5 audio VAE"
+    }
+  },
+  "ltx_upscaler": {
+    "class_type": "LatentUpscaleModelLoader",
+    "inputs": {
+      "model_name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors"
+    },
+    "_meta": {
+      "title": "LTX-2.5 spatial upscaler x2"
+    }
+  },
+  "prompt": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Use the provided start image as the first frame. A swirling ring of violet light tears open in the air beside the person, crackling with energy and casting purple light across the scene. The person glances at the camera, then steps into the portal and vanishes as it snaps shut with a flash, leaving drifting sparks. Steady camera. Audio: A humming energy vortex, electric crackles, and a sharp collapsing whoomp.",
+      "clip": [
+        "ltx_text_encoder",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Conjure: motion prompt"
+    }
+  },
+  "negative": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "blurry, out of focus, overexposed, underexposed, low contrast, washed out colors, excessive noise, grainy texture, flickering, distorted proportions, deformed facial features, extra limbs, watermark, text, subtitles, pc game, console game, video game, cartoon, childish, ugly, static image, frozen frame, no motion",
+      "clip": [
+        "ltx_text_encoder",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Conjure: negative prompt"
+    }
+  },
+  "conditioning": {
+    "class_type": "LTXVConditioning",
+    "inputs": {
+      "frame_rate": 24,
+      "positive": [
+        "prompt",
+        0
+      ],
+      "negative": [
+        "negative",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "LTXV conditioning (fps)"
+    }
+  },
+  "resize_image": {
+    "class_type": "ResizeImageMaskNode",
+    "inputs": {
+      "resize_type": "scale dimensions",
+      "resize_type.width": 704,
+      "resize_type.height": 1280,
+      "resize_type.crop": "center",
+      "scale_method": "lanczos",
+      "input": [
+        "load_image",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Fit photo to output size"
+    }
+  },
+  "preprocess_image": {
+    "class_type": "LTXVPreprocess",
+    "inputs": {
+      "img_compression": 18,
+      "image": [
+        "resize_image",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "LTXV preprocess"
+    }
+  },
+  "empty_video": {
+    "class_type": "EmptyLTXVLatentVideo",
+    "inputs": {
+      "width": 352,
+      "height": 640,
+      "length": 121,
+      "batch_size": 1
+    },
+    "_meta": {
+      "title": "Stage 1 latent (half res)"
+    }
+  },
+  "first_frame_1": {
+    "class_type": "LTXVImgToVideoInplace",
+    "inputs": {
+      "strength": 0.7,
+      "bypass": false,
+      "vae": [
+        "ltx_vae",
+        0
+      ],
+      "image": [
+        "preprocess_image",
+        0
+      ],
+      "latent": [
+        "empty_video",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 1 first frame"
+    }
+  },
+  "empty_audio": {
+    "class_type": "LTXVEmptyLatentAudio",
+    "inputs": {
+      "frames_number": 121,
+      "frame_rate": 24,
+      "batch_size": 1,
+      "audio_vae": [
+        "ltx_audio_vae",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Audio latent"
+    }
+  },
+  "av_latent_1": {
+    "class_type": "LTXVConcatAVLatent",
+    "inputs": {
+      "video_latent": [
+        "first_frame_1",
+        0
+      ],
+      "audio_latent": [
+        "empty_audio",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 1 AV latent"
+    }
+  },
+  "noise_1": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 42
+    },
+    "_meta": {
+      "title": "Conjure: seed"
+    }
+  },
+  "guider_1": {
+    "class_type": "LTXVDualCFGGuider",
+    "inputs": {
+      "video_cfg": 1,
+      "audio_cfg": 1,
+      "model": [
+        "ltx_model",
+        0
+      ],
+      "positive": [
+        "conditioning",
+        0
+      ],
+      "negative": [
+        "conditioning",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Stage 1 guider"
+    }
+  },
+  "sampler_1": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "_meta": {
+      "title": "Stage 1 sampler"
+    }
+  },
+  "sigmas_1": {
+    "class_type": "ManualSigmas",
+    "inputs": {
+      "sigmas": "1.0, 0.99375, 0.9875, 0.98125, 0.975, 0.909375, 0.725, 0.421875, 0.0"
+    },
+    "_meta": {
+      "title": "Stage 1 sigmas (8 steps)"
+    }
+  },
+  "sample_1": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "noise_1",
+        0
+      ],
+      "guider": [
+        "guider_1",
+        0
+      ],
+      "sampler": [
+        "sampler_1",
+        0
+      ],
+      "sigmas": [
+        "sigmas_1",
+        0
+      ],
+      "latent_image": [
+        "av_latent_1",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 1 sample"
+    }
+  },
+  "split_1": {
+    "class_type": "LTXVSeparateAVLatent",
+    "inputs": {
+      "av_latent": [
+        "sample_1",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 1 split AV"
+    }
+  },
+  "upsample": {
+    "class_type": "LTXVLatentUpsampler",
+    "inputs": {
+      "samples": [
+        "split_1",
+        0
+      ],
+      "upscale_model": [
+        "ltx_upscaler",
+        0
+      ],
+      "vae": [
+        "ltx_vae",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Latent upsample x2"
+    }
+  },
+  "first_frame_2": {
+    "class_type": "LTXVImgToVideoInplace",
+    "inputs": {
+      "strength": 1,
+      "bypass": false,
+      "vae": [
+        "ltx_vae",
+        0
+      ],
+      "image": [
+        "preprocess_image",
+        0
+      ],
+      "latent": [
+        "upsample",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 2 first frame"
+    }
+  },
+  "av_latent_2": {
+    "class_type": "LTXVConcatAVLatent",
+    "inputs": {
+      "video_latent": [
+        "first_frame_2",
+        0
+      ],
+      "audio_latent": [
+        "split_1",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Stage 2 AV latent"
+    }
+  },
+  "noise_2": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 42
+    },
+    "_meta": {
+      "title": "Stage 2 noise"
+    }
+  },
+  "guider_2": {
+    "class_type": "LTXVDualCFGGuider",
+    "inputs": {
+      "video_cfg": 1,
+      "audio_cfg": 1,
+      "model": [
+        "ltx_model",
+        0
+      ],
+      "positive": [
+        "conditioning",
+        0
+      ],
+      "negative": [
+        "conditioning",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Stage 2 guider"
+    }
+  },
+  "sampler_2": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "_meta": {
+      "title": "Stage 2 sampler"
+    }
+  },
+  "sigmas_2": {
+    "class_type": "ManualSigmas",
+    "inputs": {
+      "sigmas": "0.85, 0.7250, 0.4219, 0.0"
+    },
+    "_meta": {
+      "title": "Stage 2 sigmas (refine)"
+    }
+  },
+  "sample_2": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "noise_2",
+        0
+      ],
+      "guider": [
+        "guider_2",
+        0
+      ],
+      "sampler": [
+        "sampler_2",
+        0
+      ],
+      "sigmas": [
+        "sigmas_2",
+        0
+      ],
+      "latent_image": [
+        "av_latent_2",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 2 sample"
+    }
+  },
+  "split_2": {
+    "class_type": "LTXVSeparateAVLatent",
+    "inputs": {
+      "av_latent": [
+        "sample_2",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Stage 2 split AV"
+    }
+  },
+  "decode_video": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 16,
+      "samples": [
+        "split_2",
+        0
+      ],
+      "vae": [
+        "ltx_vae",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Decode video"
+    }
+  },
+  "decode_audio": {
+    "class_type": "LTXVAudioVAEDecode",
+    "inputs": {
+      "samples": [
+        "split_2",
+        1
+      ],
+      "audio_vae": [
+        "ltx_audio_vae",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Decode audio"
+    }
+  },
+  "create_video": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "fps": 24,
+      "bit_depth": 8,
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "decode_video",
+        0
+      ],
+      "audio": [
+        "decode_audio",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Create video"
+    }
+  },
+  "save_video": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "conjure/portal-out",
+      "format": "auto",
+      "format.codec": "auto",
+      "video": [
+        "create_video",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Conjure: save video"
+    }
+  }
+}

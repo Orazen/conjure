@@ -1,0 +1,23 @@
+{
+  "id": "full-moon",
+  "name": "Full Moon",
+  "tagline": "A werewolf transformation, howl included.",
+  "icon": "🐺",
+  "colors": [
+    "#a3b1c6",
+    "#1b1f3b"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "werewolf",
+    "monster",
+    "halloween"
+  ],
+  "subject": "the person",
+  "endFrame": "Turn {subject} into a werewolf: thick grey-brown fur over the face and body, a wolf snout with bared teeth, pointed ears, amber glowing eyes, clawed hands; clothing slightly torn. Moonlit blue lighting. Same pose, framing and background. Cinematic, not gory.",
+  "motion": "Moonlight washes over {subject}. Their eyes flash amber, fur ripples across the skin, the face stretches into a wolf snout and pointed ears rise through the hair as the shoulders broaden and clothes tear at the seams. The finished werewolf throws its head back and howls. Handheld camera with a subtle shake.",
+  "sound": "cracking and stretching, a deep growl, then a long haunting wolf howl under night wind",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

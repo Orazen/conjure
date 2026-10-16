@@ -1,0 +1,22 @@
+{
+  "id": "dust-to-dust",
+  "name": "Dust to Dust",
+  "tagline": "Disintegrate into ash that drifts away on the wind.",
+  "icon": "🌫️",
+  "colors": [
+    "#d6c7b0",
+    "#3b2f2f"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "disintegrate",
+    "particles",
+    "dramatic"
+  ],
+  "subject": "the person",
+  "motion": "{subject} looks down at their hand as it begins to crumble into fine grey ash at the edges. The disintegration spreads up the arm and across the body, flakes and particles peeling away and swirling off to the side on a gentle wind until only drifting dust remains against the background. Slow, dramatic, shallow depth of field.",
+  "sound": "a soft crumbling hiss, wind gusting, and a fading low cinematic drone",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

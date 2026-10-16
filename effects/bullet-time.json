@@ -1,0 +1,22 @@
+{
+  "id": "bullet-time",
+  "name": "Bullet Time",
+  "tagline": "Time freezes while the camera orbits around you.",
+  "icon": "⏱️",
+  "colors": [
+    "#d0f4de",
+    "#1b4332"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "camera",
+    "orbit",
+    "matrix"
+  ],
+  "subject": "the person",
+  "motion": "Time freezes: {subject} hangs motionless mid-moment, strands of hair and floating dust suspended in the air. The camera glides in a smooth half-orbit around {subject}, revealing them from the side while everything stays perfectly still. Cinematic lighting with crisp detail.",
+  "sound": "time slowing down into a deep stretched whoosh, a heartbeat, and a low suspended drone",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

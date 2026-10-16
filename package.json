@@ -1,0 +1,48 @@
+{
+  "name": "conjure",
+  "version": "0.1.0",
+  "description": "Open-source one-tap VFX effects for any photo. LTX-2.5 + FLUX 3 open weights, running on the Comfy Developer Platform.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n server,web -c magenta,cyan \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "tsx watch --env-file-if-exists=.env server/main.ts",
+    "dev:web": "vite",
+    "mock": "concurrently -k -n server,web -c magenta,cyan \"npm:dev:server:mock\" \"npm:dev:web\"",
+    "dev:server:mock": "tsx watch --env-file-if-exists=.env server/main.ts --mock",
+    "build": "vite build",
+    "start": "tsx --env-file-if-exists=.env server/main.ts",
+    "doctor": "tsx --env-file-if-exists=.env scripts/doctor.ts",
+    "samples": "tsx --env-file-if-exists=.env scripts/make-samples.ts",
+    "examples": "tsx --env-file-if-exists=.env scripts/render-examples.ts",
+    "validate": "tsx scripts/validate-workflows.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "export-workflows": "tsx scripts/export-workflows.ts",
+    "sync-nodes": "tsx scripts/sync-nodes.ts"
+  },
+  "dependencies": {
+    "@comfyorg/sdk": "^0.5.0",
+    "@hono/node-server": "^2.1.5",
+    "hono": "^4.13.13",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}

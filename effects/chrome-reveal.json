@@ -1,0 +1,23 @@
+{
+  "id": "chrome-reveal",
+  "name": "Chrome Reveal",
+  "tagline": "Your skin peels away to reveal the android underneath.",
+  "icon": "🤖",
+  "colors": [
+    "#e0e7ff",
+    "#1e293b"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "robot",
+    "sci-fi",
+    "cyborg"
+  ],
+  "subject": "the person",
+  "endFrame": "Turn {subject} into a sleek humanoid android: polished chrome and white ceramic panels with fine seams, glowing blue light lines along the neck and cheeks, mechanical joints visible at the jaw and shoulders, eyes glowing softly cyan. Keep the outfit, pose and background unchanged.",
+  "motion": "A thin glowing seam appears on {subject}'s cheek. Panels of skin slide and fold back with precise mechanical motion, revealing gleaming chrome and white ceramic plates underneath, blue light lines flickering on across the neck. The eyes power up with a soft cyan glow as {subject} turns slightly toward the camera. Cinematic slow push-in.",
+  "sound": "servo whirs, metallic clicks, and a rising electronic power-up tone",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

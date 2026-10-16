@@ -1,0 +1,23 @@
+{
+  "id": "inflate",
+  "name": "Inflate",
+  "tagline": "Puff up like a balloon and float off the ground.",
+  "icon": "🎈",
+  "colors": [
+    "#ff7eb6",
+    "#ff3d3d"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "balloon",
+    "funny",
+    "squish"
+  ],
+  "subject": "the person",
+  "endFrame": "Turn {subject} into an inflated shiny latex balloon version of themselves: round puffy body, smooth glossy balloon texture with a bright highlight, puffed cheeks and limbs, a balloon knot at the base, floating slightly above the ground. Same colours of clothing and hair, same background. Comedic.",
+  "motion": "{subject}'s cheeks puff out, then their whole body swells up like a balloon being blown up, clothing stretching smooth and glossy, arms and legs ballooning out. They lift gently off the ground and bob in the air, slowly rotating. Comedic timing, steady camera.",
+  "sound": "a long squeaky rubber inflation stretch, a comic boing, and a gentle floating whistle",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

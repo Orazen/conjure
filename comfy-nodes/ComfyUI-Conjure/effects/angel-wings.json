@@ -1,0 +1,22 @@
+{
+  "id": "angel-wings",
+  "name": "Angel Wings",
+  "tagline": "Huge feathered wings unfold from your back.",
+  "icon": "🪽",
+  "colors": [
+    "#fdf0d5",
+    "#b08968"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "wings",
+    "angel",
+    "fantasy"
+  ],
+  "subject": "the person",
+  "motion": "Soft light glows behind {subject}. Enormous white feathered wings unfurl from their back, spreading wide on both sides of the frame, feathers ruffling, then give one slow powerful flap that sends loose feathers drifting through golden light. Gentle upward camera tilt.",
+  "sound": "a heavy rustle of feathers, one powerful wing beat, and an ethereal choir swell",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

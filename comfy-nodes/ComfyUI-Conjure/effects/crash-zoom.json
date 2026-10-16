@@ -1,0 +1,22 @@
+{
+  "id": "crash-zoom",
+  "name": "Crash Zoom",
+  "tagline": "A dramatic crash zoom straight into your eyes.",
+  "icon": "🎯",
+  "colors": [
+    "#ffadad",
+    "#9d0208"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "camera",
+    "zoom",
+    "dramatic"
+  ],
+  "subject": "the person",
+  "motion": "{subject} slowly turns to look straight into the lens. The camera suddenly crash-zooms in at high speed toward their eyes, motion blur streaking the edges, stopping hard on an extreme close-up of one eye as the iris catches a glint of light. Dramatic film lighting.",
+  "sound": "a sharp rising whoosh and a heavy cinematic impact boom",
+  "duration": 4,
+  "author": "Conjure",
+  "version": 1
+}

@@ -1,0 +1,22 @@
+{
+  "id": "thunder-call",
+  "name": "Thunder Call",
+  "tagline": "Summon lightning that crackles around you.",
+  "icon": "⚡",
+  "colors": [
+    "#caf0f8",
+    "#3c096c"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "lightning",
+    "storm",
+    "superpower"
+  ],
+  "subject": "the person",
+  "motion": "The sky darkens and wind picks up around {subject}. They look up as crackling blue-white electricity arcs between their fingers, then a bolt of lightning strikes behind them, flooding the scene with light as sparks dance across their shoulders and hair lifts with static. Low-angle camera.",
+  "sound": "crackling electricity, a huge rolling thunderclap, and gusting storm wind",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

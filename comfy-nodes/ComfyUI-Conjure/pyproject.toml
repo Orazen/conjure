@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-conjure"
+description = "Use Conjure one-tap VFX effect recipes (FLUX 3 + LTX-2.5) inside any ComfyUI graph."
+version = "0.1.0"
+license = { text = "MIT" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/YOUR_GITHUB/conjure"
+
+[tool.comfy]
+PublisherId = "YOUR_PUBLISHER_ID"
+DisplayName = "Conjure Effect Recipes"
+Icon = ""

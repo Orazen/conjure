@@ -1,0 +1,23 @@
+{
+  "id": "turn-to-stone",
+  "name": "Turn to Stone",
+  "tagline": "Cracks race across your skin and you petrify into a marble statue.",
+  "icon": "🗿",
+  "colors": [
+    "#d9d4c7",
+    "#5b5446"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "statue",
+    "marble",
+    "medusa"
+  ],
+  "subject": "the person",
+  "endFrame": "Convert {subject} into a classical carved white marble statue with grey veining: skin, hair and clothing become chiselled stone with fine cracks and a dusty matte surface, eyes blank and smooth. Keep the exact same pose, framing, camera angle, background and lighting; keep {subject}'s face shape and proportions recognisable.",
+  "motion": "{subject} freezes mid-breath. Grey stone texture blooms from the chest outward, fine cracks racing across the skin and clothing as colour drains away. Hair stiffens into carved strands, a puff of stone dust drifts down, and {subject} settles into a still white marble statue. The camera slowly pushes in.",
+  "sound": "deep grinding stone, crackling fractures, and a low echoing rumble that settles into silence",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

@@ -1,0 +1,22 @@
+{
+  "id": "ignite",
+  "name": "Ignite",
+  "tagline": "Your hands burst into controlled superhero flames.",
+  "icon": "🔥",
+  "colors": [
+    "#ffd166",
+    "#d62828"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "fire",
+    "superpower",
+    "hero"
+  ],
+  "subject": "the person",
+  "motion": "{subject} raises both hands and opens their palms. Small flames flicker to life on the fingertips, then roar up into bright swirling fire that wraps around both hands and forearms without burning them, lighting their face with a warm orange glow. Embers drift upward. Confident expression, slow push-in.",
+  "sound": "a gas-like whoomph, roaring crackling flames, and drifting ember crackles",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}

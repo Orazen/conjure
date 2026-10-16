@@ -1,0 +1,22 @@
+{
+  "id": "confetti-pop",
+  "name": "Confetti Pop",
+  "tagline": "Burst into a cloud of party confetti.",
+  "icon": "🎉",
+  "colors": [
+    "#ffe066",
+    "#f72585"
+  ],
+  "pipeline": "motion",
+  "tags": [
+    "party",
+    "celebration",
+    "burst"
+  ],
+  "subject": "the person",
+  "motion": "{subject} grins, then bursts in a playful pop into thousands of colourful confetti pieces and streamers that explode outward and flutter down through the frame, sparkling in the light, revealing the empty background behind. Joyful, bright, steady camera.",
+  "sound": "a cartoon pop, a party horn, cheering, and rustling falling confetti",
+  "duration": 4,
+  "author": "Conjure",
+  "version": 1
+}

@@ -1,0 +1,23 @@
+{
+  "id": "boxed-figure",
+  "name": "Boxed Figure",
+  "tagline": "Shrink into a collectible action figure sealed in its box.",
+  "icon": "🧸",
+  "colors": [
+    "#ff8fab",
+    "#5e2bff"
+  ],
+  "pipeline": "transform",
+  "tags": [
+    "toy",
+    "collectible",
+    "figure"
+  ],
+  "subject": "the person",
+  "endFrame": "Turn {subject} into a glossy plastic collectible action figure sealed inside a retail blister package: a clear plastic bubble over a colourful cardboard backing with bold graphic shapes and a hanging tab, small accessories in moulded slots beside the figure. The figure keeps {subject}'s outfit, hairstyle and pose with visible toy joints and painted details. No brand names or logos.",
+  "motion": "{subject} shrinks and stiffens as their skin takes on a smooth painted-plastic sheen and visible toy joints appear at the shoulders and knees. A clear plastic blister shell snaps closed around them and a bright cardboard backing slides in behind, sealing them in the package. The camera pulls back slightly to reveal the whole box.",
+  "sound": "a playful plastic clicking, a whoosh, and a satisfying blister-pack snap",
+  "duration": 5,
+  "author": "Conjure",
+  "version": 1
+}
