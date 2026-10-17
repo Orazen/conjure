@@ -56,7 +56,7 @@ Both graphs were derived from the official ComfyUI templates (`video_ltx2_5_i2v`
 Requires **Node 22.9+**. `ffmpeg` is optional (it powers mock renders and the share reel).
 
 ```bash
-git clone https://github.com/<you>/conjure && cd conjure
+git clone https://github.com/orazen/conjure && cd conjure
 npm install
 ```
 

@@ -38,7 +38,9 @@ function Routes() {
   const { path, params } = useRoute();
   const effectId = path.startsWith("/effect/") ? decodeURIComponent(path.slice("/effect/".length)) : undefined;
   const page = path.startsWith("/builder") ? "builder" : path.startsWith("/gallery") ? "gallery" : "effects";
-  useEffect(() => window.scrollTo({ top: 0 }), [page]);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [page]);
   return (
     <div className="shell">
       <TopBar path={path} />

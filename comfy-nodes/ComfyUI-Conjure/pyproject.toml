@@ -6,7 +6,7 @@ license = { text = "MIT" }
 dependencies = []
 
 [project.urls]
-Repository = "https://github.com/YOUR_GITHUB/conjure"
+Repository = "https://github.com/orazen/conjure"
 
 [tool.comfy]
 PublisherId = "YOUR_PUBLISHER_ID"

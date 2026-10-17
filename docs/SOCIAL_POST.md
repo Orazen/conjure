@@ -8,7 +8,7 @@
 >
 > FLUX 3 paints the final frame → LTX-2.5 animates the move. Open weights only, running on @ComfyUI.
 >
-> Every effect is a remixable recipe. Code: <repo link>
+> Every effect is a remixable recipe. Code: https://github.com/orazen/conjure
 >
 > #OpenSourceHiggsfield
 
@@ -26,7 +26,7 @@ For the Comfy *Open Source Higgsfield* challenge I rebuilt the viral one-tap eff
 - Runs through the **Comfy SDK** on Comfy Cloud, a Comfy API deployment, or your own GPU via `comfy-api-proxy`.
 - For ComfyUI users there are 22 ready-to-run workflows plus a tiny custom node (*Conjure Effect Recipe*) that outputs the prompts and frame counts for any recipe.
 
-Repo (MIT): <repo link> · Demo: <video link>
+Repo (MIT): https://github.com/orazen/conjure · Demo: <video link>
 
 Feedback and effect PRs welcome. #OpenSourceHiggsfield
 
@@ -36,6 +36,6 @@ Feedback and effect PRs welcome. #OpenSourceHiggsfield
 >
 > Under the hood: FLUX 3 Image Klein paints where the shot ends, and LTX-2.5 generates the video and the audio, all open weights and all through the Comfy Developer Platform SDK. Effects are small JSON recipes, so anyone can create and share new ones without touching a node graph.
 >
-> Code (MIT): <repo link> · Demo: <video link>
+> Code (MIT): https://github.com/orazen/conjure · Demo: <video link>
 >
 > #OpenSourceHiggsfield #ComfyUI #GenerativeAI #OpenSource

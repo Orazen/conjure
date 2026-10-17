@@ -52,14 +52,14 @@ Watch a few results. If an effect looks weak, tweak its prompt in `effects/<id>.
 ```bash
 git add -A && git commit -m "Conjure: open-source one-tap VFX effects"
 git branch -M main
-git remote add origin https://github.com/<your-username>/conjure.git
+git remote add origin https://github.com/orazen/conjure.git
 git push -u origin main
 ```
 
-3. Add `CONJURE_GITHUB_REPO=<your-username>/conjure` to `.env` (this enables the "Submit to community" button).
-4. Replace `<you>` in README's clone URL and `YOUR_GITHUB` in `comfy-nodes/ComfyUI-Conjure/pyproject.toml`.
+3. Add `CONJURE_GITHUB_REPO=orazen/conjure` to `.env` (this enables the "Submit to community" button).
+4. The README clone URL and `comfy-nodes/ComfyUI-Conjure/pyproject.toml` repository URL are set to `orazen/conjure`.
 5. Swap `docs/screenshots/home.png` for a real screenshot or GIF that shows rendered previews.
-6. **Turn on the live link:** repo **Settings → Pages → Source: GitHub Actions**. The next push publishes the showcase at `https://<your-username>.github.io/conjure/`. That's your "live link" for the form.
+6. **Turn on the live link:** repo **Settings → Pages → Source: GitHub Actions**. The next push publishes the showcase at `https://orazen.github.io/conjure/`. That's your "live link" for the form.
 
 ## 5. Record the demo (≤ 2 min)
 
@@ -76,7 +76,7 @@ https://form.typeform.com/to/V1dSQrkS. Have these ready:
 - GitHub repo URL
 - Demo video URL (≤ 2 min)
 - Social post URL
-- Live link: `https://<your-username>.github.io/conjure/` (the GitHub Pages showcase)
+- Live link: `https://orazen.github.io/conjure/` (the GitHub Pages showcase)
 - Short description: *"Conjure is an open-source rebuild of one-tap viral video effects. FLUX 3 Image Klein paints where the shot ends up and LTX-2.5 animates the move with sound, all open weights, all through the Comfy SDK. Type any idea ('turn me into a chocolate statue') and Gemma 4, running inside ComfyUI, writes a new effect for you. Effects are tiny JSON recipes anyone can remix, share as a link, or contribute by PR, and a ComfyUI node pack brings them into any graph."*
 - Tools used besides Comfy (they must also be stated in the video): ffmpeg (share reel), React/Vite + Hono (app), Claude as an AI coding assistant.
 
